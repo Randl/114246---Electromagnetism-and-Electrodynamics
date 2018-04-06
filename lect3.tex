@@ -1,0 +1,76 @@
+
+$$ \phi\qty(\va{r'}) = \underbrace{\int\limits_V    G \qty(\va{r}, \va{r'})\rho\qty(\va{r}) \dd[3]{\vb{r}}}_{0} - \oint\limits_S  \frac{\phi }{4\pi}\cdot \pdv{G}{\vu{n}} \dd{s} $$
+$$\pdv{G}{\vu{n}} = -\eval{\pdv{G}{x}}_{x=0}$$
+$$\phi = \frac{x'}{2\pi} \int \dd{z} \dd{y} \frac{\phi_S(y,z)}{\qty[x'^2 + (y-y')^2 + (z-z')^2]^{\frac{3}{2}}}$$
+\paragraph{Symmetry of Green function}
+$$G \qty(\va{r}, \va{r'}) = G \qty(\va{r'}, \va{r})$$
+
+\subsection{Separation of variables}
+
+Suppose we have two planes parallel to $y$ axis with zero potential with distance $L$ between them, and a plane parallel to $x$ axis with potential $V(x)$. We want to solve
+$$\laplacian{ \phi} = 0$$
+$$\pdv[2]{\phi}{x}+\pdv[2]{\phi}{y}+\pdv[2]{\phi}{z}=0$$
+Since there is no change on $z$ direction we get
+$$\pdv[2]{\phi}{x}+\pdv[2]{\phi}{y}=0$$
+Let's use anzatz for the solution $\phi = X(x)Y(y)$:
+$$Y\dv[2]{X}{x} + X\dv[2]{Y}{y} = 0$$
+$$\frac{1}{X}\dv[2]{X}{x} + \frac{1}{Y}\dv[2]{Y}{y} = 0$$
+Since we have operands depending on different variables, both are constant.
+$$\begin{cases}
+\frac{1}{Y}\dv[2]{Y}{y} = +k^2\\
+\frac{1}{X}\dv[2]{X}{X} = -k^2\\
+\end{cases}$$
+(since we want $Y$ to decrease to $0$ in infinity, we choose positive value for $Y$ and negative for $X$).
+
+The solution is
+$$\begin{cases}
+X = a \cdot \sin(kx) + b \cdot \cos(kx)\\
+X = c \cdot e^{ky} + d \cdot e^{-ky}
+\end{cases}$$
+Since $\phi(0,y,z) = \phi(L,y,z) = 0$, $b=0$ and $k$ acquires discrete values $k_n = \frac{n\pi }{L}$.
+Since $\phi(x, y\to \infty, z) = 0$, $c=0$.
+
+Now we need to force $\phi(x,y=0,z)=V(x)$:
+$$\Phi = X(x)Y(y=0) = V(x)$$
+
+We know that the solution is of form
+$$da \sin (k_nx) e^{-k_ny}$$
+Thus we can get a general solution in a form
+$$\phi = \sum d_na_n \sin(k_n x) e^{-k_ny}$$
+So we want
+$$V(x) = \sum \underbrace{d_na_n}_{q_n} \sin(k_nx)$$
+which is Fourier series:
+$$\int \dd{x} V(x) \sin(k_{n'}x) = \sum_{n} \int \dd{x} q_n \sin(k_nx) \sin(k_{n'}x) = \sum_n q_n \frac{L}{2} \delta_{nn'} = \frac{Lq_{n'}}{2} $$
+
+\paragraph{Example}
+Suppose we have to planes with angle $\theta_0$ between them and potential $\phi_0$ on both. In cylindrical coordinates
+$$\laplacian{\phi} = \frac{1}{R} \pdv{R} \qty(R\pdv{\phi}{R}) + \frac{1}{R^2} \pdv[2]{\phi}{\theta} + \pdv[2]{\phi}{z} $$
+By separation of variables
+$$\phi = F(R)G(\theta)$$
+$$\frac{G(\theta)}{R} \dv{F}{R} + G\dv[2]{F}{R} + \frac{F(R)}{R^2} \dv[2]{G}{\theta} = 0$$
+$$\begin{cases}
+\frac{1}{G} \dv[2]{G}{\theta} =-\nu^2 \\
+\frac{1}{F} \dv{F}{R} + \frac{R^2}{F}\dv[2]{F}{R} = \nu^2
+\end{cases}$$
+\subparagraph{$\nu>0$}
+$$\begin{cases}
+G = A\cos(\nu \theta) + B\sin(\nu \theta)\\
+F = aR^{-\nu} + bR^{\nu}
+\end{cases}$$
+\subparagraph{$\nu=0$}
+$$\begin{cases}
+G=\tilde{A}+\tilde{B}\theta\\
+F=\tilde{a}+\tilde{b}\ln R
+\end{cases}$$
+We get $\tilde{b}=0$ such that $F$ doesn't diverge in 0. Also there shouldn't be dependence on angle, so $\tilde{B}=0$ and $\tilde{A} \neq 0$, thus for $\nu=0$ potential is constant.
+
+For positive $\nu$, $A=0$ and $a=0$ and also want $\sin(\nu \theta_0) = 0$ thus
+$$\phi(\theta) = \phi_0 + \sum_{n=1} a_n R^{\frac{n\pi}{\theta_0}} \sin(n\pi \frac{\theta}{\theta_0}) $$
+
+If $R \to 0$, the most dominant element of sum is $n=1$. Thus
+$$\phi \propto R^{\frac{\pi}{\theta_0}}$$
+i.e., due to $E \sim -\pdv{\phi}{R} \sim R^{\frac{\pi}{\theta_0} - 1}$:
+$$\begin{cases}
+E \to 0 & \theta_0 < \pi \\
+E \to \infty & \theta_0 > \pi \\
+\end{cases}$$

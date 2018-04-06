@@ -1,0 +1,68 @@
+Suppose we have infinite grounded plane and a point charge in distance $a$ from it. The bound condition is $\phi(x=0,y,z) = 0$ And the potential of point charge is
+$\laplacian{\Phi} = -4\pi q \delta \qty(\va{r} - \va{r}_0)$
+
+The way to solve this kind of problems is to add imaginary charge such that we get zero potential on bound (e.g., symmetrically with opposite charge).
+
+If we have two such charges:
+$$\Phi = \frac{q}{(x-a)^2+y^2+z^2} -  \frac{q}{(x+a)^2+y^2+z^2}$$
+This fulfills bound conditions:
+ $$\phi(x=0,y,z) = \frac{q}{a^2+y^2+z^2} -  \frac{q}{a^2+y^2+z^2}= 0$$
+ 
+ Denote density of charge on plane as $\sigma$, then $\dd{q} = \sigma \dd{s}$. If this case force between plane and charge is $\abs{\frac{\sigma q \dd{s}}{R^2}}$
+ 
+ How do we find $\sigma$? From Gauss law
+ $$\oint \vec{E} \cdot \dd{s} = 4\pi \int\limits_V \rho \dd[3]{\vb{r}}$$
+ $$-|E_n|\dd{s} = 4\pi \sigma \dd{s}$$
+ $$4\pi \sigma = E_n$$
+ 
+ \subsection{Green function}
+ Suppose we have a unit charge in point $\va{r'}$. Then potential is $\Phi_{\va{r'}}$ such that $\Delta \Phi = -4\pi \delta (\va{r} - \va{r'}) $.
+ $$G\qty(\va{r}, \va{r'}) = \Phi_{\va{r'}}$$
+ Thus
+ $$ \laplacian{G\qty(\va{r}, \va{r'})} = -4\pi \delta \qty(\va{r} - \va{r'}) $$
+ Then we can write $G$ as
+ $$G\qty(\va{r}, \va{r'} ) = \frac{1}{\abs{r-r'}} + F\qty(\va{r}, \va{r'} )$$ 
+ And $F$ guaranties bound conditions, while $ \laplacian{F} = 0$.
+ 
+ \paragraph{Bound conditions}
+ \begin{enumerate}
+ 	\item $G\qty(\va{r}, \va{r'}) = 0$.for bound $S$.
+ 	\item $ \pdv{\vu{n}}G(\va{r}, \va{r'}) = -\frac{4\pi}{S} $. Then number comes from Gauss' law
+ \end{enumerate}
+
+\paragraph{Green theorem}
+$$\int\limits_V \left( \phi \grad{\psi} - \psi  \grad{\phi} \right) \dd[3]{\vb{r}} = \oint\limits_S \left[ \phi \pdv{\psi}{ \vu{n}} - \psi \pdv{\phi}{ \vu{n}} \right]\dd{s} $$
+
+Since
+$$\int\limits_V \dd[3]{\vb{r}} \div(\phi\grad{\psi}) = \oint \phi \grad{\psi} \cdot \dd{\va{s}}= \oint \phi \pdv{\psi}{ \vu{n}} \dd{s}$$
+we get
+
+$$\int\limits_V \dd[3]{\vb{r}} \left( \phi  \laplacian{\psi} - \psi \laplacian{ \phi} \right)   = \int\limits_V \dd[3]{\vb{r}} \div(\phi \grad{\psi}) - \grad{\phi} \vdot \grad{\psi} - \div\left(\phi \grad{\psi}\right) + \grad{\psi} \vdot \grad{\phi }= \oint\limits_S \left[ \phi \pdv{\psi}{\vu{n}} - \psi \pdv{\phi}{\vu{n}} \right]\dd{s}$$ %TODO
+
+
+Now for $\psi\qty(\va{r}) = G\qty(\va{r}, \va{r'})$
+$$\int\limits_V \dd[3]{\vb{r}} \left( - \phi \cdot 4\pi \delta \qty(\va{r}-\va{r'}) - G \laplacian{\phi} \right)  = \oint\limits_S\dd{s} \left[ \phi \pdv{ G}{ \vu{n}} - G \pdv{ \phi}{ \vu{n}}\right] $$
+
+Suppose we want $\laplacian{\phi} = 4\pi \rho(\va{r})$ for some $\rho$ and Dirichlet bound conditions on same surface $S$:
+$$\int\limits_V \dd[3]{\vb{r}}  \left( -4\pi\phi\qty(\va{r'}) - G \laplacian{\phi} \right) = \oint\limits_S\dd{s} \left[ \phi \pdv{G}{\vu{n}} - G \pdv{\phi}{\vu{n}} \right] $$
+Substituting $G=0$ on the bound surface
+$$ -4\pi\phi\qty(\va{r'}) + \int\limits_V \dd[3]{\vb{r}}  G \cdot 4\pi \rho\qty(\va{r})   = \oint\limits_S \dd{s}  \phi\pdv{G}{\vu{n}}  $$
+i.e.
+$$ \phi\qty(\va{r'}) = \int\limits_V    G \qty(\va{r}, \va{r'})\rho\qty(\va{r}) \dd[3]{\vb{r}} - \oint\limits_S  \frac{\phi }{4\pi}\cdot \pdv{G}{\vu{n}} \dd{s} $$
+
+\paragraph{Neumann bound conditions}
+$$-4\pi \phi\qty(\va{r'}) + 4\pi \int \rho\qty(\va{r}) G\qty(\va{r}, \va{r'}) \dd[3]{\vb{r}} = \oint \dd{s} \left[ \phi \left( -\frac{4\pi}{S}\right) -  G\pdv{\phi}{\vu{n}} \right] $$
+However
+$$ \oint  \phi \left( -\frac{4\pi}{S}\right)  \dd{s} = -\frac{4\pi}{S} \oint \phi \dd{s} = -4\pi \langle  \phi \rangle$$
+$$\phi\qty(\va{r'}) =  \int \rho\qty(\va{r}) G\qty(\va{r}, \va{r'}) \dd[3]{\vb{r}} +  \frac{1 }{4\pi}\oint   G\pdv{\phi}{\vu{n}} \dd{s} + \langle  \phi \rangle$$
+\paragraph{Example}
+$$G\qty(\va{r}, \va{r'}) = \frac{1}{\abs{\va{r} - \va{r'}}}$$
+With bound conditions
+$$0 = G\qty(\va{r}\to \infty, \va{r'})$$
+Thus
+$$\phi\qty(\va{r}) = \int \rho \qty(\va{r}) \frac{1}{\abs{\va{r} - \va{r'}}} \dd[3]{\vb{r}}$$
+\paragraph{Example}
+Suppose we have an infinite plane with potential $\phi(x=0,y,z)=\phi_S(y,z)$ and $\rho=0$ in one side of space ($x>0$). We are searching for $\phi(x>0,y,z)$.
+
+Define Green function as a solution of previous problem, with point charge and grounded plane:
+$$G\qty(\va{r}, \va{r'}) = \frac{1}{\qty\Big[(x-x')^2+(y-y')^2+(z-z')^2]^{\frac{1}{2}}}-\frac{1}{\qty\Big[(x+x')^2+(y-y')^2+(z-z')^2]^{\frac{1}{2}}}$$

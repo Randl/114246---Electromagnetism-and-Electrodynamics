@@ -1,0 +1,100 @@
+\section{Introduction}
+In this course we use CGS system. Force between two charges is
+$$\va{F} = \frac{q_1q_2}{\vb{r}^2}\vu{r}$$
+The unit of charge is statcoulomb, or esu.
+
+Field around charge $q$ is
+$$\va{E} = \frac{\va{F}}{q'}= \frac{q}{\vb{r}^2}\vu{r}$$
+Then force can be written as $$\va{F} = q' \va{E}$$
+
+\paragraph{Principle of linearity (superposition)}
+If we have some frame of reference we can rewrite force as
+$$\va{F}_1 = \frac{q'q_1}{\abs{\va{r'}-\va{r}_1}^3}\qty(\va{r}-\va{r'})$$
+And fields can be summed as following:
+$$\va{E} = \sum_{i=1}^N E_i = \sum_{i=1}^N \frac{q_i(\va{r'}-\va{r}_i)}{\abs{\va{r'}-\va{r}_i}^3}$$
+
+If charge is continuous define
+$$\rho(\va{r}) = \frac{\Delta q}{\Delta V}$$
+field turns into integral:
+$$\vec{E}(\va{r}) = \int \dd[3]{\vb{r'}}  \rho(\va{r'}) \frac{\qty(\va{r}-\va{r'})}{|\va{r}-\va{r'}|^3}$$
+\paragraph{Potential}
+$$\vec{E} = \frac{q\va{r}}{\vb{r}^2} = -\grad{\frac{q}{r}} $$
+For some frame of reference
+$$\vec{E} = \frac{q(\va{r}-\va{r'})}{|\va{r}-\va{r'}|^3} = -\grad\frac{q}{|\va{r}-\va{r'}|} = -\grad \Phi$$
+\paragraph{Gradient, divergence and Laplacian in spherical coordinates}
+$$\grad{f(r, \theta, \phi) } = \vu{r} \pdv{f}{x} + \vu{\theta} \frac{1}{r} \pdv{f}{\theta} + \hat{\phi} \pdv{f}{\phi} \frac{1}{r \sin \theta}$$
+$$\div{\va{A} (r,\theta, \phi) } = \frac{1}{r^2} \pdv{r} (\vb{r}^2 A_r) + \frac{1}{r\sin \theta}\pdv{\theta}  (\sin \theta A_\theta) + \frac{1}{r \sin \theta} \pdv{ A_\phi}{\phi}$$
+\paragraph{Continuous case}
+
+$$\vec{E}\qty(\va{r}) = \int \dd[3]{r'} \rho\qty(\va{r'}) \frac{\qty(\va{r}-\va{r'})}{\abs{\va{r}-\va{r'}}^3} = -\grad \int \frac{\dd[3]{\vb{r'}} \rho(\vb{r'})}{\abs{\va{r}-\va{r'}}} $$
+And
+$$\Phi = \int \frac{\dd[3]{\vb{r'}} \rho\qty(\vb{r'})}{\abs{\va{r}-\va{r'}}}$$
+\paragraph{Gauss theorem}
+$$\int\limits_V \dd[3]{\vb{r}}\div {\va{A} \qty(\vb{r})} = \oint \va{A} \vdot \dd{\va{s}} = \oint \vb{A}_n \dd{s}$$
+
+Lets apply Gauss theorem on electric field of point charge in origin:
+$$\div{\va{E}} = \div{ \frac{q \va{r}}{\vb{r}^3}}$$
+Then
+$$\div{\va{E}} = -\laplacian{\frac{q}{r}} $$
+If $r\neq 0$,
+$$\div{\va{E}} = q \grad {\frac{\va{r}}{\vb{r}^3}} = q \grad {\frac{\vu{r}}{\vb{r}^2} }= \frac{q}{\vb{r}^2} \pdv{r} \left( \vb{r}^2 \frac{1}{\vb{r}^2}\right) = 0 $$
+
+By applying Gauss law:
+$$\int\limits_V \dd[3]{\vb{r}} \div{\va{E}} = \oint \va{E} \dd{\va{s}} = \int \dd{\Omega}  \frac{q\vu{R}}{\vb{R}^2} \vdot \va{R} \vdot \vb{R}^2 = q\oint \dd{\Omega}  = 4\pi q$$
+Which is right for a ball of any radius, in particular,  $R \to 0$. Thus
+$$\div{\va{E}} = 0$$
+while
+$$\int\limits_{V_\epsilon} \div{\va{E}} \dd[3]{\vb{r}}= 4\pi q$$ 
+\paragraph{Delta function}
+Lets define 
+$$ \begin{cases}
+\delta^D = 0 & x\neq0\\
+\int\limits_{x\in V} \delta^D(x) \dd{x} = 1
+\end{cases}$$
+We can define it as limit of 
+$$F_\Delta = \begin{cases}
+\frac{1}{\Delta} & -\frac{\Delta}{2} < x<  \frac{\Delta}{2}  \\
+0 & otherwise
+\end{cases}$$
+Then $\lim_{\Delta\to 0} F_\Delta = \delta^D$.
+\paragraph{Potential of point charge}
+For a charge in point $\vb{r}_a$:
+$$\div{\va{E}} = 4\pi q \delta^D \qty(\va{r} - \va{r}_a)$$
+And for a couple of charges
+$$\div{\va{E}} = 4\pi \sum_a q_a \delta^D \qty(\va{r} - \va{r}_a)$$
+Then we can define dencity of charge for a point charge as
+$$\rho\qty(\va{r}) =  \sum_a q_a \delta^D \qty(\va{r} - \va{r}_a)$$
+And then in both cases
+$$\div{\va{E}} = 4\pi \rho \qty(\va{r})$$
+Since
+$$\vec{E} = -\grad {\Phi}$$
+$$\grad{ \left(-\grad{ \Phi}\right) }= 4\pi \rho$$
+Which means
+$$\laplacian{\Phi} = -4\pi \rho$$
+which is Poisson equation. For bound conditions of $\phi, E \stackrel{r \to \infty}{\to} 0$ solution is $E = q\frac{\vu{r}}{\vb{r}^2}$.
+\subsection{Bound conditions}
+\paragraph{Direchlet bound conditions}
+$\Phi = \Phi_S\qty(\va{r})$
+for $r \in S$.
+\paragraph{Neumann bound condtions}
+We have $E_n$ on $S$.
+\subsection{Example of Solutions}
+Suppose we have Dirichlet bound conditions: $\Phi_S=0$. Obvious solution is $\Phi=\rho=0$
+
+Lets show it's unique solution:
+$$\int\limits_V E^2 \dd[3]{\vb{r}} = \int |\grad \Phi |^2 \dd[3]{\vb{r}} $$
+$$|\nabla \Phi |^2 = \grad{\Phi} \vdot \grad{\Phi} = \grad\left(\Phi \vdot \grad{\Phi}\right) - \Phi \laplacian{\Phi}  = \grad\left(\Phi \vdot \grad{\Phi}\right)$$
+$$\int\limits_V E^2 \dd[3]{\vb{r}} = \int \grad\left(\Phi \vdot \grad{\Phi}\right) \dd[3]{\vb{r}} \stackrel{\text{Gauss}}{=} \oint \Phi \vdot \grad{\Phi} \vdot \dd{\va{s}} = 0 $$
+Thus $E=0$ and $\Phi=0$.
+\paragraph{General case}
+In general case $\laplacian{\Phi} = - 4\pi q$. Suppose we have bound conditions $\Phi = \Phi_S \neq 0$. Suppose we have two solutions $\Phi_1$, $\Phi_2$. 
+
+Take a look at $\Phi = \Phi_1 -\Phi_2$, which has boundary conditions $\Phi_1-\Phi_2=\Phi_S-\Phi_S=0$, thus solutions are equal, from previous paragraph.
+\paragraph{Neumann bound conditions}
+Instead of $\Phi$ we now have $E_n =-\grad{\Phi} \vdot \vu{n} = 0 $.
+$$\int\limits_V E^2 \dd[3]{\vb{r}} = \int \grad\left(\Phi \vdot \grad{\Phi}\right) \dd[3]{\vb{r}} \stackrel{\text{Gauss}}{=} \oint \Phi \vdot \grad{\Phi} \vdot \dd{\va{s}} = \oint \Phi \vdot \underbrace{\grad{\Phi} \vdot \vu{n}}_{-E_n} \dd{s} =  0 $$
+Thus $E=0$. Note that $E_n$ determines $E_t$.
+\paragraph{Earnshaw theorem}
+If in some volume $\rho=0$, then there is no local  maximum or minimum of potential in this volume, since then $\grad{\Phi} = 0$ and either $\laplacian{\Phi} > 0$ or $\laplacian{\Phi} < 0$, but $\laplacian{\Phi} = \rho = 0$
+\subsection{Methods of solutions of Poisson equation}
+\paragraph{Method of image charges}
