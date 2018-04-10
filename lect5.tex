@@ -1,0 +1,47 @@
+\paragraph{Spherical harmonics}
+Spherical harmonics are an analogue of Fourier series in spherical coordinates.
+$$G(\theta, \varphi) = \sum_{l=0}^\infty \sum_{m=-l}^{l} g_{l,m} Y_{lm}(\theta, \varphi)$$
+$Y$ are orthogonal functional basis
+$$\int \dd{\Omega} Y_{lm} (\theta, \varphi) Y^{*}_{l'm'} (\theta, \varphi) = \delta_{ll'}\delta_{mm'} $$
+A coefficient is
+$$g_{l'm'} = \int  \dd{\Omega} G(\theta, \varphi) Y^{*}_{l'm'} (\theta, \varphi)  $$
+
+The spherical harmonics are proportional to Legendre polynomials
+$$Y_{lm}(\theta, \varphi) \propto P_{l}^m (\cos \theta) e^{\pm i \varphi}$$
+
+$$\phi\qty(\va{r}) = \sum_l\int \dd[3]{r'} \rho\qty(\va{r'}) \frac{{r'}^l}{{r}^{l+1}} \sum_{m=-l}^l  \frac{4\pi}{2l+1}Y_{lm}\qty(\vu{r})Y^*_{lm}\qty(\vu{r'}) = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}  \frac{ Y_{lm}\qty(\vu{r})}{{r}^{l+1}} \int \dd[3]{r'} \rho\qty(\va{r'}) {r'}^l  Y^*_{lm}\qty(\vu{r'})$$
+$$\int \dd[3]{r'} \rho\qty(r',\theta',\varphi') {r'}^l   Y^*_{lm}\qty(\theta',\varphi') = \int \dd{r'} {r'}^{2+l} \dd{\theta'} \sin(\theta') \dd{\phi'} \rho\qty(r',\theta',\varphi')  Y^*_{lm}\qty(\theta',\varphi') = \int \dd{r'} {r'}^{2+l} \dd{\Omega'}  \rho\qty(r',\theta',\varphi')  Y^*_{lm}\qty(\theta',\varphi')$$
+
+Now, for $l=0$, for example, 
+$$\phi^{l=0}(r,\theta , \varphi) = 4\pi  \frac{ Y_{lm}\qty(\vu{r})}{r} \int \dd[3]{r'} \rho\qty(\va{r'}) {r'}^l  Y^*_{00}\qty(\vu{r'}) = 4\pi Y_{00}^2 \frac{1}{r} \int \dd[3]{r'} \rho(\va{r'}) = \frac{Q}{r}$$
+for $l=1$:
+$$\phi^{l=1}(r,\theta , \varphi) =\sum_{m=-1}^1 \frac{4\pi}{3}  \frac{ Y_{1m}\qty(\vu{r})}{r^2} \int \dd{r'} {r'}^{3} \dd{\Omega'}  \rho\qty(r',\theta',\varphi')  Y^*_{1m}\qty(\theta',\varphi')$$
+
+Denote 
+$$\va{P} = \int \dd[3]{r'} \va{r'} \rho\qty(\va{r'}) $$
+Previously, we got
+$$\phi_1 = \frac{\va{r} \vdot \va{P}}{r^3}$$
+Now, for $m=0$:
+$$ \frac{4\pi}{3}  \frac{ \overbrace{\frac{1}{2}\sqrt{\frac{3}{\pi}} \cos \theta}^{Y_{10}}}{r^2} \int \underbrace{\dd{r'} {r'}^{3} \dd{\Omega'} }_{\dd[3]{r'} r'} \rho\qty(r',\theta',\varphi') \frac{1}{2}\sqrt{\frac{3}{\pi}} \cos \theta' = \frac{4\pi}{3}\frac{\frac{3}{4\pi} \cos \theta}{r^2} \int \dd[3]{r'} \rho\qty(r',\theta',\varphi') z' =  \frac{\cos \theta}{r^2} \int \dd[3]{r'} \rho\qty(r',\theta',\varphi') z' = \frac{\cos \theta}{r^2}P_z$$
+
+
+\paragraph{Dipole inside constant electrical field}
+Given field $\va{E}$ and dipole moment $\va{P}$:
+$$U = - \va{E} \vdot \va{P} = -\va{E} \vdot \qty(q\va{r} + (-q) (-\va{r})) = -\va{E} (2\va{r})q$$
+The torque is
+$$\va{N}  = \va{r}_1 \cross q_1 \va{E} + \va{r}_2 \cross q_2 \va{E} = \qty(q_1\va{r}_1 + q_2 \va{r}_2)\cross  \va{E} =\va{P} \cross \va{E}$$
+We could acquire it as
+$$\qty|-\pdv{U}{\theta}| = \qty|PE\pdv{\cos \theta}{\theta}|  = \qty|PE\sin \theta|$$
+\paragraph{Dipole inside electrical field}
+Now
+$$U = q_1 \phi^{ext} (\va{r}_1) + q_2 \phi^{ext} (\va{r}_2) $$
+We can approximate potential in a second point:
+$$\phi^{ext}(\va{r}_2) = \phi^{ext}(\va{r}_1) + \grad{\phi^{ext}} \vdot (\va{r}_2 -\va{r}_1) + \frac{1}{2} \pdv{\phi^{ext}}{x_\alpha x_\beta} (x_{2, \alpha}-x_{1, \alpha})(x_{2, \beta}-x_{1, \beta}) + \order{(\va{r}_2-\va{r}_1)^3}$$
+For constant field we get the same results. Else we get
+\begin{align*}
+U = q_1 \phi^{ext} (\va{r}_1) + q_2 \qty[\phi^{ext}(\va{r}_1) + \grad{\phi^{ext}} \vdot (\va{r}_2 -\va{r}_1) + \underbrace{\frac{1}{2} \pdv{\phi^{ext}}{x_\alpha x_\beta} (x_{2, \alpha}-x_{1, \alpha})(x_{2, \beta}-x_{1, \beta}) + \order{(\va{r}_2-\va{r}_1)^3}}_{0}] =\\= \text{const} - \va{E}\vdot (\va{r}_2 -\va{r}_1) q =  \text{const} - \va{E}\vdot \va{P}
+\end{align*}
+Lets calculate force on dipole:
+$$\va{F} = q_1 \va{E}(\va{r}_1) + q_2 \va{E}(\va{r}_2)$$
+Approximating $E$ with Taylor series
+$$\va{F} = q_1 \va{E}(\va{r}_1) + q_2 \qty[\va{E}(\va{r}_1) + \sum_{\alpha, \beta} \vu{x}_\alpha \pdv{E_\alpha}{x_\beta} \qty(x_{2\beta} - x_{1\beta})  + \order{\qty(\va{r}_2-\va{r}_1)^2}] $$
