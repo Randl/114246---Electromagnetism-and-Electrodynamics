@@ -44,4 +44,4 @@ U = q_1 \phi^{ext} (\va{r}_1) + q_2 \qty[\phi^{ext}(\va{r}_1) + \grad{\phi^{ext}
 Lets calculate force on dipole:
 $$\va{F} = q_1 \va{E}(\va{r}_1) + q_2 \va{E}(\va{r}_2)$$
 Approximating $E$ with Taylor series
-$$\va{F} = q_1 \va{E}(\va{r}_1) + q_2 \qty[\va{E}(\va{r}_1) + \sum_{\alpha, \beta} \vu{x}_\alpha \pdv{E_\alpha}{x_\beta} \qty(x_{2\beta} - x_{1\beta})  + \order{\qty(\va{r}_2-\va{r}_1)^2}] $$
+$$E(\va{r}_2) = \va{E}(\va{r}_1) + \sum_{\alpha, \beta} \vu{x}_\alpha \pdv{E_\alpha}{x_\beta} \qty(x_{2\beta} - x_{1\beta})  + \order{\qty(\va{r}_2-\va{r}_1)^2} \approx E(\va{r}_1) + \grad{E} \vdot (\va{r}_2 - \va{r}_1)$$

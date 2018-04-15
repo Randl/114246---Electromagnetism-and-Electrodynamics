@@ -1,0 +1,67 @@
+$$\va{F} = q_1 \va{E}(\va{r}_1) + q_2 \qty[E(\va{r}_1) + \grad{E} \vdot (\va{r}_2 - \va{r}_1)] = -q \grad{E} \vdot (\va{r}_2 - \va{r}_1) = \qty(\va{P} \vdot \grad){E}$$
+Thus 
+$$U = -\va{P} \vdot \va{E}$$
+
+In general case
+$$\va{P}  = \int \dd[3]{r'} \rho(\va{r}') \va{r}' = \sum q_i \va{r}'_i$$
+Now
+\begin{align*}
+U = \sum_i q_i \phi^{ext} (\va{r}_i) \approxeq \sum_i q_i \qty[\phi^{ext}(\va{r}_0) \grad{\phi^{ext}} \vdot (\va{r}_i -\va{r}_0) + \frac{1}{2} \pdv{\phi^{ext}}{x_\alpha}{x_\beta} (x_{i\alpha} - x_{0\alpha})(x_{i\beta} - x_{0\beta})] =\\= \sum_i q_i \phi^{ext}(0) + \grad{\phi^{ext}} \vdot \sum_i q_i\va{r}_i + \frac{1}{2} \pdv{\phi^{ext}}{x_\alpha}{x_\beta} \sum_i q_i x_{i\alpha} x_{i\beta}
+\end{align*}
+$$ \frac{1}{2} \pdv{\phi^{ext}}{x_\alpha}{x_\beta} \sum_i q_i x_{i\alpha} x_{i\beta} = \sum_{\alpha, \beta} \frac{1}{6} \pdv{\phi^{ext}}{x_\alpha}{x_\beta} D_{\alpha \beta}$$
+where
+$$D_{\alpha \beta} = \sum q_i \qty( 3x_{i\alpha}x_{i\beta} - \vb{r}_i^2 \delta_{\alpha, \beta})$$
+\paragraph{Self energy of system of particles}
+For two particles the energy is
+$$U = \frac{q_1q_2}{\qty|\va{r}_2 - \va{r}_1|} = q_1 \phi_2(\va{r}_1)  = \frac{1}{2} \qty\big(q_1\phi(\va{r}_1)+q_2\phi(\va{r}_2))$$
+i.e.
+$$U = \frac{1}{2} \sum q_i \phi(r_i) = \frac{1}{2} \int \dd[3]{r} \rho(\va{r}) \phi(\va{r}) $$
+Substituting $\laplacian{\phi} = -4\rho(\va{r})$:
+$$U = -\frac{1}{8\pi} \int \dd[3]{r} \laplacian{\phi} \phi$$
+Since
+$$\div{\phi \grad{\phi} } = |\grad \phi|^2 + \phi \laplacian{\phi}$$
+we get
+$$U = -\frac{1}{8\pi}\int \dd[3]{r} \underbrace{\div{\phi \grad{\phi}}}_0 - \underbrace{|\grad \phi|^2}_{E^2} = \frac{1}{8\pi}\int \dd[3]{r} E^2$$
+\subparagraph{Infinite energy}
+Suppose all internal energy comes from own electric field:
+$$U \sim \frac{e^2}{R_0} \sim m_e c^2$$
+i.e.
+$$R_0 \sim \frac{e^2}{mc^2}$$
+However this is not proper quantum limit, since it lacks Plank constant. The proper one is Compton wavelength:
+$$\lambda \sim \frac{\hbar}{m_e c}$$
+Thus
+$$\frac{\lambda}{R_0} \sim \frac{\bar{h} c}{e^2} \sim 137$$
+\subparagraph{Pure dipole}
+If we take an charge system such that it's potential is dipole's one in every place in space, we get field equal to
+$$\va{E}(\va{r}) = \frac{3(\va{P} \vdot \vu{r}) \vu{r} - \va{P}}{r^3} - 4\pi \hat{r} (\va{P} \vdot \vu{r}) \delta(\va{r})$$
+\section{Magnetostatics}
+The force between two currents is
+$$\dd{F} = \kappa II' \frac{\dd{\va{l'}} \cross (\dd{\va{l}} \va{r})}{r^3}$$
+
+\paragraph{Difference between magnetic and electric field}
+$$\begin{cases}
+\div{B}  = 0 \\
+\va{B} = \curl{\va{A}} \Rightarrow \curl{\va{B}} = \frac{4\pi}{c} \va{j} 
+\end{cases} \iff \begin{cases}
+\div{BE}  = 4\pi \rho \\
+\va{E} = -\grad{\phi} \Rightarrow \curl{\va{E}} = 0
+\end{cases}$$
+where $j$ is current density, such that $\int \va{j} \vdot \dd{\va{s}}$ is equal to charge passing through surface in unit time.
+$$\div{\va{j}} = \frac{c}{4\pi} \div(\curl{\va{B}}) = 0$$
+Suppose we have constant charge, then $\oint \va{j} \vdot \dd{\va{s}} = 0$ and thus
+$$0=\oint \va{j} = \int\limits_{V} \div{\va{j}} \dd[3]{r} \stackrel{V \to 0}{\longrightarrow} \div{\va{j}} \cdot \Delta V $$
+
+In general case
+$$\pdv{Q}{t} = - \oint \va{j}\vdot \dd{\va{s}}$$
+Substituting $Q = \int\limits_V  \dd[3]{r} \rho$ and $ \oint \va{j}\vdot \dd{\va{s}} = \int\limits_V \dd[3]{r} \div{\va{j}} $, we get
+$$\pdv{t} \int \dd[3]{r} \rho = -\int\limits_V \dd[3]{r}  \div{\va{j}} $$
+In limit $V \to 0$ we get continuity equation
+$$\pdv{\rho}{t} + \div{\va{j}} = 0$$
+
+$$\curl{\va{B}} = \curl(\curl{\va{A}}) = \frac{4\pi}{c} \va{j}$$
+$$\curl(\curl{\va{A}}) = \grad(\div{\va{A}}) - \laplacian{\va{A}}$$
+From gauge invariance we are free to choose $div{\va{A}} = 0$. Thus we acquired
+$$\laplacian{\va{A}} = - \frac{4\pi}{c} \va{j}$$
+The solution is 
+$$\va{A} = \frac{1}{c} \int \frac{\va{j} (\va{r'}) \dd[3]{r'}}{\qty|\va{r} -\va{r'}|}$$
+with border conditions $\va{B} \to 0$ in infinity.

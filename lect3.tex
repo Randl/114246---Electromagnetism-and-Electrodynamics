@@ -25,7 +25,7 @@ $$\begin{cases}
 The solution is
 $$\begin{cases}
 X = a \cdot \sin(kx) + b \cdot \cos(kx)\\
-X = c \cdot e^{ky} + d \cdot e^{-ky}
+Y = c \cdot e^{ky} + d \cdot e^{-ky}
 \end{cases}$$
 Since $\phi(0,y,z) = \phi(L,y,z) = 0$, $b=0$ and $k$ acquires discrete values $k_n = \frac{n\pi }{L}$.
 Since $\phi(x, y\to \infty, z) = 0$, $c=0$.
@@ -34,7 +34,7 @@ Now we need to force $\phi(x,y=0,z)=V(x)$:
 $$\Phi = X(x)Y(y=0) = V(x)$$
 
 We know that the solution is of form
-$$da \sin (k_nx) e^{-k_ny}$$
+$$d_na_n \sin (k_nx) e^{-k_ny}$$
 Thus we can get a general solution in a form
 $$\phi = \sum d_na_n \sin(k_n x) e^{-k_ny}$$
 So we want
