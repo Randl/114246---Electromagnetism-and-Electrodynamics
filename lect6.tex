@@ -40,10 +40,10 @@ $$\dd{F} = \kappa II' \frac{\dd{\va{l'}} \cross (\dd{\va{l}} \va{r})}{r^3}$$
 
 \paragraph{Difference between magnetic and electric field}
 $$\begin{cases}
-\div{B}  = 0 \\
+\div{\va{B}}  = 0 \\
 \va{B} = \curl{\va{A}} \Rightarrow \curl{\va{B}} = \frac{4\pi}{c} \va{j} 
 \end{cases} \iff \begin{cases}
-\div{BE}  = 4\pi \rho \\
+\div{\va{E}}  = 4\pi \rho \\
 \va{E} = -\grad{\phi} \Rightarrow \curl{\va{E}} = 0
 \end{cases}$$
 where $j$ is current density, such that $\int \va{j} \vdot \dd{\va{s}}$ is equal to charge passing through surface in unit time.
@@ -60,7 +60,7 @@ $$\pdv{\rho}{t} + \div{\va{j}} = 0$$
 
 $$\curl{\va{B}} = \curl(\curl{\va{A}}) = \frac{4\pi}{c} \va{j}$$
 $$\curl(\curl{\va{A}}) = \grad(\div{\va{A}}) - \laplacian{\va{A}}$$
-From gauge invariance we are free to choose $div{\va{A}} = 0$. Thus we acquired
+From gauge invariance we are free to choose $\div{\va{A}} = 0$. Thus we acquired
 $$\laplacian{\va{A}} = - \frac{4\pi}{c} \va{j}$$
 The solution is 
 $$\va{A} = \frac{1}{c} \int \frac{\va{j} (\va{r'}) \dd[3]{r'}}{\qty|\va{r} -\va{r'}|}$$
