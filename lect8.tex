@@ -1,0 +1,59 @@
+
+where
+$$(\va{k} \vdot \grad)\va{U} = \sum_{\alpha, \beta } k_\alpha  \pdv{U_\beta}{x_\alpha} \vu{x}_\beta$$
+We can rewrite as
+
+$$(\va{k} \vdot \grad)\va{U} = \sum_{\alpha } \qty(k_\alpha \vu{x}_\alpha) \vdot \sum_{\alpha, \beta } \qty(\pdv{U_\beta}{x_\alpha} \vu{x}_\beta \vu{x}_\alpha)$$
+Denote matrix of derivatives $\pdv{U_\beta}{x_\alpha} \vu{x}_\beta \vu{x}_\alpha$ as $\grad{\va{U}}$, i.e., dyadic or outer product of $\grad$ and $\va{U}$.
+Then
+$$\oint \dd{\va{r'}} \cross \va{U}(\va{r}) = \int \grad{\va{U}} \vdot \dd{\va{s}} - \int \dd{s} \div{\va{U}}$$
+In our case $\va{U} =\frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3}$ and since $\va{r} \neq \va{r'}$, $\div{\va{U}} = 0$.
+Finally, we got
+$$\va{B}(\va{r}) = \frac{I}{c} \int \grad_{r'}{\frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3}} \vdot \dd{\va{s'}} = -\frac{I}{c} \int \grad_r{\frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3}} \vdot \dd{\va{s'}} = -\frac{I}{c} \grad_r{\int \frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3}} \vdot \dd{\va{s'}}$$
+That means
+$$\phi_m(\va{r}) = \frac{I}{c} \grad_r{\int \frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3}} \vdot \dd{\va{s'}}$$
+such that
+$$\va{B}= -\grad \phi_m(\va{r})$$
+
+\paragraph{Geometrical meaning of $\phi_m$}
+Suppose $\va{r}=0$. Then
+
+$$\phi_m(\va{r}) = \frac{I}{c} \grad_r{\int -\frac{\va{r'}}{{r'}^3}} \vdot \dd{\va{s'}}$$
+Note that $\frac{\va{r'}\vdot \dd{\va{s'}}}{{r'}^3} $ is solid angle $\Omega$ of current loop, i.e.
+$$\phi_m = \frac{I}{c} \Omega$$
+
+\subsection{Multipole expansion of magnets}
+First of all for $\va{E}$ monopole is sum of charges, however there is no such thing as magnetic monopole.
+\paragraph{Exercise}
+Suppose there exists magnetic monopole $\va{B}= \frac{Q_B \vu{r}}{r^2}$. Solve the problem of movement
+$$m\ddot{r} = \va{F}_B = \frac{q}{c} \va{v} \cross \va{B}$$
+
+Write down the scalar potential
+$$\phi_m = \frac{I}{c} \int \dd{s'} \cdot \frac{\va{r} - \va{r'}}{\abs{\va{r} - \va{r'}}^3}$$
+\paragraph{First order approximation}
+$r' \approx 0$:
+$$\phi_m \approx \frac{I}{c} \int  \dd{s'} \vdot \frac{\va{r}}{r^3} = \frac{I}{c} \frac{\va{r}}{r^3}  \vdot  \int  \dd{s'} = \va{M} \vdot \frac{\va{r}}{r^3}$$
+where
+$$\va{M}= \frac{I}{c} \va{S}$$
+is magnetic moment.
+
+Alternatively we could use vector potential:
+$$\va{A} = \frac{1}{c} \int \dd[3]{r'} \frac{\va{j}(\va{r'})}{\abs{\va{r}-\va{r'}}}$$
+Taking Taylor series of $\frac{1}{\abs{\va{r}-\va{r'}}}$ around 0, we get
+$$\va{A} \approx \frac{1}{cr} \int \va{j}(\va{r'}) \dd[3]{r'} +  \frac{\va{r}}{cr^3} \vdot \int \va{r'} \va{j}(\va{r'}) \dd[3]{r'}$$
+($\frac{1}{\abs{\va{r}-\va{r'}}} \approx \frac{1}{r} + \frac{\va{r}\vdot \va{r'}}{r^3}$, thus we have a matrix under integral).
+Note since
+$$\pdv{x'_\beta}{x'_\alpha} = \delta_{\alpha\beta}$$
+is identity matrix, we can rewrite
+$$\int \va{j} \dd[3]{r'} =\int j_\alpha \cdot \pdv{x'_\beta}{x'_\alpha} \vu{x}_\beta \dd[3]{r'} = \int \pdv{x'_\alpha}\qty(j_\alpha x'_\beta \vu{x}_\beta) - x'_\beta \vu{x}_\beta\underbrace{ \pdv{j_\alpha}{x'_\alpha}}_{\div{\va{j}} = 0}\dd[3]{r'}$$
+In matrix form:
+$$\int \va{j} \dd[3]{r'} =\int \va{j} \vdot \pdv{x'_\beta}{x'_\alpha} \dd[3]{r'} = \int \div(\va{j}\va{x'})  - \qty(\div{\va{j}} )\va{r'} \dd[3]{r'}$$
+Now, since there are no currents
+$$\int \pdv{x'_\alpha}\qty(j_\alpha x'_\beta \vu{x}_\beta) \dd[3]{r'} = \int \dd{s'_\alpha} j_\alpha x'_\beta \vu{x}_\beta = 0$$
+$$ \int \div(\va{j}\va{x'})  =  \int \dd{s'_\alpha} \va{j}\va{x'}  = 0$$
+Thus
+$$\int \va{j} \dd[3]{r'} =0$$
+
+
+Now for second-order part, take one element of it:
+$$ \eval{\int \va{r'} \va{j}(\va{r'}) \dd[3]{r'}}_{\alpha} = \int j_\beta \vu{x}'_\beta x'_\alpha \dd[3]{r'} = \frac{1}{2} \int j_\beta x'_\beta  x'_\alpha \dd[3]{r'} + \frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r'} + \frac{1}{2} \int j_b \vu{x}'_\beta x'_\alpha \dd[3]{r} - \frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r} $$

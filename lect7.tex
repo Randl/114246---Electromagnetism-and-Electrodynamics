@@ -21,7 +21,7 @@ If we want $\div{\va{A'}} = 0$, we get $\chi + \laplacian{\psi} = 0$. Thus we ca
 If 
 $$\va{A} = \frac{1}{c} \int \dd[3]{r'} \frac{\va{j}(\va{r})}{\abs{\va{r}-\va{r'}}}$$
 we can get
-$$\va{B} = \curl{\va{A}} = \frac{1}{c} \int \dd[3]{r'} \va{j}(\va{r}) \cross \frac{\qty(\va{r'}-\va{r})}{\abs{\va{r}-\va{r'}}^3}$$
+$$\va{B} = \curl{\va{A}} = \frac{1}{c} \int \dd[3]{r'} \va{j}(\va{r}) \cross \frac{\qty(\va{r}-\va{r'})}{\abs{\va{r}-\va{r'}}^3}$$
 \subsection{Biot–Savart law}
 Suppose we have current $I$ on some curve $l'$. Then magnetic field due to this current in point $\va{r}$ is
 $$\dd{\va{B}(\va{r})} = \frac{I}{c} \dd{\va{l'}} \cross \frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3}$$
@@ -55,4 +55,4 @@ It's impossible to write $\va{B} = -\grad{\phi_m}$. However, if there is some ar
 Using Biot-Savart law
 $$\va{B}(\va{r})= \frac{I}{c} \oint \dd{\va{r'}} \cross \frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3} = \frac{I}{c} \underbrace{\oint \dd{r'} \cross \underbrace{\va{U}(\va{r})}_{\frac{\va{r}-\va{r'}}{\abs{\va{r}-\va{r'}}^3}}}_{\va{H}}$$
 For some constant vector $\va{k}$:
-$$\va{k}\vdot \va{H} = \va{k} \vdot \oint \dd{r'} \cross \va{U}(\va{r}) = \oint \dd{\va{r}} \cross \qty(\va{k} \vdot \va{U}) = \int \dd{\va{s}} \cdot \curl(\va{U} \cross \va{k}) = \int \dd{\va{s}} \cdot \qty[ (\va{k} \vdot \grad)\va{U} - \va{k} (\div{\va{U}})] $$
+$$\va{k}\vdot \va{H} = \va{k} \vdot \oint \dd{\va{r'}} \cross \va{U}(\va{r}) = \oint \dd{\va{r'}} \vdot \qty(\va{U} \cross \va{k}  ) = \int \dd{\va{s}} \cdot \curl(\va{U} \cross \va{k}) = \int \dd{\va{s}} \cdot \qty[ (\va{k} \vdot \grad)\va{U} - \va{k} (\div{\va{U}})]$$
