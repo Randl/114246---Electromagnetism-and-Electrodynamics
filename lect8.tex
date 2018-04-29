@@ -38,9 +38,9 @@ $$\va{M}= \frac{I}{c} \va{S}$$
 is magnetic moment.
 
 Alternatively we could use vector potential:
-$$\va{A} = \frac{1}{c} \int \dd[3]{r'} \frac{\va{j}(\va{r'})}{\abs{\va{r}-\va{r'}}}$$
+$$\va{A} = \frac{1}{c} \int \dd[3]{r'} \frac{\va{j}\qty(\va{r'})}{\abs{\va{r}-\va{r'}}}$$
 Taking Taylor series of $\frac{1}{\abs{\va{r}-\va{r'}}}$ around 0, we get
-$$\va{A} \approx \frac{1}{cr} \int \va{j}(\va{r'}) \dd[3]{r'} +  \frac{\va{r}}{cr^3} \vdot \int \va{r'} \va{j}(\va{r'}) \dd[3]{r'}$$
+$$\va{A} \approx \frac{1}{cr} \int \va{j}\qty(\va{r'}) \dd[3]{r'} +  \frac{\va{r}}{cr^3} \vdot \int \va{r'} \va{j}\qty(\va{r'}) \dd[3]{r'}$$
 ($\frac{1}{\abs{\va{r}-\va{r'}}} \approx \frac{1}{r} + \frac{\va{r}\vdot \va{r'}}{r^3}$, thus we have a matrix under integral).
 Note since
 $$\pdv{x'_\beta}{x'_\alpha} = \delta_{\alpha\beta}$$
@@ -48,12 +48,14 @@ is identity matrix, we can rewrite
 $$\int \va{j} \dd[3]{r'} =\int j_\alpha \cdot \pdv{x'_\beta}{x'_\alpha} \vu{x}_\beta \dd[3]{r'} = \int \pdv{x'_\alpha}\qty(j_\alpha x'_\beta \vu{x}_\beta) - x'_\beta \vu{x}_\beta\underbrace{ \pdv{j_\alpha}{x'_\alpha}}_{\div{\va{j}} = 0}\dd[3]{r'}$$
 In matrix form:
 $$\int \va{j} \dd[3]{r'} =\int \va{j} \vdot \pdv{x'_\beta}{x'_\alpha} \dd[3]{r'} = \int \div(\va{j}\va{x'})  - \qty(\div{\va{j}} )\va{r'} \dd[3]{r'}$$
-Now, since there are no currents
+Now, since there are no currents (magnetostatics)
 $$\int \pdv{x'_\alpha}\qty(j_\alpha x'_\beta \vu{x}_\beta) \dd[3]{r'} = \int \dd{s'_\alpha} j_\alpha x'_\beta \vu{x}_\beta = 0$$
-$$ \int \div(\va{j}\va{x'})  =  \int \dd{s'_\alpha} \va{j}\va{x'}  = 0$$
+$$ \int \div(\va{j}\va{x'})  =  \int \dd{s'} \va{j}\va{x'}  = 0$$
 Thus
 $$\int \va{j} \dd[3]{r'} =0$$
 
 
-Now for second-order part, take one element of it:
-$$ \eval{\int \va{r'} \va{j}(\va{r'}) \dd[3]{r'}}_{\alpha} = \int j_\beta \vu{x}'_\beta x'_\alpha \dd[3]{r'} = \frac{1}{2} \int j_\beta x'_\beta  x'_\alpha \dd[3]{r'} + \frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r'} + \frac{1}{2} \int j_b \vu{x}'_\beta x'_\alpha \dd[3]{r} - \frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r} $$
+For second-order part, take one element of it, and adding and subtracting $\frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r'}$, thus factoring into symmetric and antisymmetric part, where antisymmetric part is curl:
+$$ \eval{\int \va{r'} \va{j}\qty(\va{r'}) \dd[3]{r'}}_{\alpha} = \int j_\beta \vu{x}'_\beta x'_\alpha \dd[3]{r'} = \frac{1}{2} \int j_\beta \vu{x}'_\beta  x'_\alpha \dd[3]{r'} + \frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r'} + \frac{1}{2} \int j_b \vu{x}'_\beta x'_\alpha \dd[3]{r'} - \frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r'} $$
+$$\int \va{r'} \va{j}\qty(\va{r'}) \dd[3]{r'} = \frac{1}{2}\int \va{r'} \va{j}\qty(\va{r'}) -\va{j}\qty(\va{r'})\va{r'}  \dd[3]{r'} + \frac{1}{2}\int \va{r'} \va{j}\qty(\va{r'}) +\va{j}\qty(\va{r'})\va{r'}  \dd[3]{r'}
+$$

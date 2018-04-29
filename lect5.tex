@@ -9,7 +9,7 @@ $$g_{l'm'} = \int  \dd{\Omega} G(\theta, \varphi) Y^{*}_{l'm'} (\theta, \varphi)
 The spherical harmonics are proportional to Legendre polynomials
 $$Y_{lm}(\theta, \varphi) \propto P_{l}^m (\cos \theta) e^{\pm i \varphi}$$
 
-$$\phi\qty(\va{r}) = \sum_l\int \dd[3]{r'} \rho\qty(\va{r'}) \frac{{r'}^l}{{r}^{l+1}} \sum_{m=-l}^l  \frac{4\pi}{2l+1}Y_{lm}\qty(\vu{r})Y^*_{lm}\qty(\vu{r'}) = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}  \frac{ Y_{lm}\qty(\vu{r})}{{r}^{l+1}} \int \dd[3]{r'} \rho\qty(\va{r'}) {r'}^l  Y^*_{lm}\qty(\vu{r'})$$
+$$\phi\qty(\va{r}) = \sum_l\int \dd[3]{r'} \rho\qty(\va{r'}) \frac{{r'}^l}{{r}^{l+1}} \sum_{m=-l}^l  \frac{4\pi}{2l+1}Y_{lm}\qty(\vu{r})Y^*_{lm}\qty(\vu{r'}) = \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4\pi}{2l+1}  \frac{ Y_{lm}\qty(\vu{r})}{{r}^{l+1}} \underbrace{\int \dd[3]{r'} \rho\qty(\va{r'}) {r'}^l  Y^*_{lm}\qty(\vu{r'})}_{\text{multipole moment}}$$
 $$\int \dd[3]{r'} \rho\qty(r',\theta',\varphi') {r'}^l   Y^*_{lm}\qty(\theta',\varphi') = \int \dd{r'} {r'}^{2+l} \dd{\theta'} \sin(\theta') \dd{\phi'} \rho\qty(r',\theta',\varphi')  Y^*_{lm}\qty(\theta',\varphi') = \int \dd{r'} {r'}^{2+l} \dd{\Omega'}  \rho\qty(r',\theta',\varphi')  Y^*_{lm}\qty(\theta',\varphi')$$
 
 Now, for $l=0$, for example, 

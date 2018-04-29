@@ -39,7 +39,7 @@ $$\pdv{r'} f = \grad{f} = \sum_{\alpha}  \pdv{f}{x_\alpha} \vu{x}_\alpha$$
 i.e.,
 $$\frac{1}{\qty|\va{r}-\va{r'}|} = \frac{1}{r} + \frac{\va{r} \vdot \va{r'}}{r^3} + \order{r^2}$$
 meaning
-$$\phi_1 = \int \dd[3]{r'} \rho(\va{r'}) \frac{\va{r} \vdot \va{r'}}{r^3}  =  \frac{\va{r}}{r^3} \underbrace{ \int \dd[3]{r'} \rho(\va{r'}) \va{r'} }_{va{P}}$$
+$$\phi_1 = \int \dd[3]{r'} \rho(\va{r'}) \frac{\va{r} \vdot \va{r'}}{r^3}  =  \frac{\va{r}}{r^3} \underbrace{ \int \dd[3]{r'} \rho(\va{r'}) \va{r'} }_{\va{P}}$$
 \paragraph{Example}
 A single point charge in point $\va{r'} = \va{r}_q$.
 $$\phi = \frac{q}{\qty|\va{r} - \va{r}_q|} \approx \phi_1\qty(\va{r}) + \phi_2\qty(\va{r}) = \frac{q}{r} + \frac{\va{r} \vdot P}{r^3} = \frac{q}{r}+ \frac{q \va{r} \vdot \va{r}_q}{r^3}$$
@@ -57,11 +57,13 @@ $$\phi_2 = \sum_{\alpha, \beta}\int \dd[3]{r'} \frac{1}{2} \pdv{\frac{1}{r}}{x_\
 We can rewrite as
 $$\phi_2  = \frac{1}{6} \pdv{\frac{1}{r}}{x_\alpha}{x_\beta} Q_{\alpha \beta}$$
 where
-$$Q_{\alpha \beta}= \sum_{\alpha, \beta} \int \dd[3]{r'} \rho(\va{r'}) \qty( x'_\alpha x'_\beta - \frac{1}{3} {r'}^2 \delta_{\alpha, \beta})   $$
+$$Q_{\alpha \beta}= \sum_{\alpha, \beta} \int \dd[3]{r'} \rho(\va{r'}) \qty( r'_\alpha r'_\beta - \frac{1}{3} {r'}^2 \delta_{\alpha, \beta})   $$
 and
 $$\pdv{\frac{1}{r}}{x_\alpha}{x_\beta} = 3 \frac{x_\alpha x_\beta}{r^5} - \frac{\delta_{\alpha, \beta}}{r^3}$$
 Also
 $$\tr Q = \sum_{\alpha, \beta} \delta_{\alpha, \beta} Q_{\alpha, \beta} = 0$$
+Thus
+$$\phi_2= \frac{1}{2}\frac{\va{r}^T Q \va{r}}{r^5}$$
 \paragraph{Legendre polynomial}
 Define functions $P_l(x)$:
 $$G(t,x) = \frac{1}{\sqrt{1-2tx +t^2}} = \sum_{l=0}^\infty P_l(x) t^l$$
