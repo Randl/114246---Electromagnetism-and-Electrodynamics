@@ -1,0 +1,54 @@
+\paragraph{Force of $\va{B}$ on system of currents}
+$$\va{F}= \frac{q}{c} \va{v} \cross \va{B}$$
+(for comparison, Coriolis force is $\va{F} = -2 \va{\Omega} \cross \va{v}$).
+
+Then
+$$\dd{\va{F}} = \frac{I}{c}\dd{l} \cross \va{B}$$
+i.e.,
+$$\va{F} = \frac{I}{c}\oint \dd{l} \cross \va{B} $$
+Taylor series of $\va{B}$ is
+$$\va{B} \approx \va{B}(0) + \eval{(\va{r} \vdot \grad)\va{B}}_{\va{r}=0}$$
+Thus 
+$$\va{F} = \frac{I}{c} \oint \dd{\va{r}} \cross \qty[\va{B}(0) + \eval{(\va{r} \vdot \grad)\va{B}}_{\va{r}=0}] = \frac{I}{c} \oint \dd{\va{r}} $$
+Since
+$$\oint \dd{\va{r}} \cross \va{u}= \int (\grad \va{u}) \vdot \dd{\va{s}} - \int \dd{\va{s}} (\div{\va{u}}) $$
+we get
+$$\va{F} = \frac{I}{c} \int \grad((\va{r} \vdot \grad)\va{B})\vdot \dd{s} = \frac{I}{c} \int \dd{s} \div[(\va{r} \vdot \grad)\va{B}] = \frac{I}{c} \int \dd{s} \div{\va{B}} = 0$$
+In case of magnetic dipole:
+$$\va{F} = \frac{I}{c} \int \grad((\va{r} \vdot \grad)\va{B})\vdot \dd{s} = \va{M} \vdot \grad{\va{B}} = \grad(\va{M} \cdot \va{B})$$
+Then the energy of magnetic dipole moment in external magnetic field is
+$$U = \va{M} \vdot \va{B}$$
+\paragraph{Landau's method}
+Looking at average in time:
+$$F = \expval{\sum \frac{q}{c}\va{v}_\alpha \cross \va{B}} = \expval{\dv{t} \sum \frac{q}{c}\va{r}_\alpha \cross \va{B}} \to 0$$
+Since if $X$ doesn't diverges
+$$\dv{t} \bar{X} = \frac{1}{T} \int_0^T \dv{X}{t} \dd{t} = \frac{X(t)-X(0)}{T} $$
+
+Now, the torque is
+$$\va{N} = \expval{\sum \frac{q}{c} \va{r}_i \cross \qty(\va{v} \cross \va{B})} = \expval{\sum \frac{q}{c} \va{v} \qty(\va{r}\vdot \va{B}) - \va{B} \qty(\va{v} \vdot \va{r})}$$
+Similarly, 
+$$\va{v}\vdot \va{r} = \dv{r^2}{t}$$
+on average gives $0$, i.e.,
+$$\va{N} = \expval{\sum \frac{q}{c} \va{v}(\va{r} \vdot \va{B})}$$
+$$\va{v}(\va{r} \vdot \va{B}) = \underbrace{\frac{1}{2} \dv{t}\qty[\va{r}(\va{r} \vdot \va{B})]}_{0} + \underbrace{\frac{1}{2} \va{v}(\va{r} \vdot \va{B}) - \frac{1}{2} \va{r}(\va{v} \vdot \va{B})}_{\frac{1}{2} \va{v}\cross (\va{r} \cross \va{B})}$$
+Define
+$$\va{M} = \frac{1}{2c} \sum q\va{r} \cross \va{B}$$
+Then
+$$\va{N}  = \va{M} \cross \va{B} = \frac{1}{2c}\sum q\va{r} \cross \va{v}$$
+\paragraph{Larmor precession}
+The angular momentum vector $\va{M}$ precesses about the external field axis with an angular frequency known as the Larmor frequency,
+$ \omega =-\gamma B$
+
+where $\omega $ is the angular frequency, $\va{B}$ is the magnitude of the applied magnetic field. $\gamma$ is the gyromagnetic ratio of system.
+
+\section{Electric field in insulating matter}
+\paragraph{Exercise}
+Suppose molecules are neutral conducting balls. What happens when appears external field? 
+\paragraph{Field due to polarization}
+Define polarization with vector $\va{P}$ and then electric dipole of volume $\Delta V$ is
+$$\va{p} = \va{P} \Delta V $$ %TODO
+$$\Phi_{dipole} = \frac{\va{P}\cdot \va{r}}{r^3}$$
+$$\phi_{total} =- \int \dd[3]{r'} \frac{\va{r} - \va{r}'}{\abs{\va{r} -\va{r}'}}\vdot \va{P}(r) $$
+$$ \va{E}_p = -\grad_r{\int \dd[3]{r'} \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3} \vdot \va{P}(\va{r}')}$$
+$$\va{E}_p = -\int \dd[3]{r'}  \va{P}(\va{r}') \vdot \grad_r\frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3}  = \int \dd[3]{r'}  \va{P}(\va{r}') \vdot \grad_{r'}\frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3} = -\int \dd[3]{r'}  \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3}  \grad_{r'} \vdot \va{P}(\va{r}') + \oint \dd{\va{s}}  \vdot \va{P} (\va{r}') \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3}  $$
+Here $\rho_b(\va{r})b= -\div{\va{P}}$ is induced charge density inside the matter.

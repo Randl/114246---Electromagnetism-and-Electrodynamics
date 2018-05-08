@@ -2,14 +2,19 @@ $$\vu{x'}_\beta \pdv{x'_\gamma} \qty(x'_\alpha x'_\beta j_\gamma ) = j_\alpha x'
 $$\div{\va{j}\va{r}\va{r}} = \va{r}\va{j}\cdot \grad{\va{r}}) + (\va{j}\cdot \grad{\va{r}})\va{r} + \underbrace{\div{\va{j}}\va{r}}_{0}$$
 Thus
 $$ \frac{1}{2} \int j_\beta \vu{x'}_\beta  x'_\alpha \dd[3]{r'} + \frac{1}{2} \int x'_\beta \vu{x}'_\beta j_\alpha \dd[3]{r'} =\frac{1}{2} \int \vu{x'}_\beta \pdv{x'_\gamma} \qty(x'_\alpha x'_\beta j_\gamma )  \dd[3]{r'} =  \frac{\vu{x'}_\beta}{2} \oint  x'_\alpha x'_\beta \va{j} \vdot \dd{\va{s}}$$
-$$ frac{1}{2}\int \va{r'} \va{j}\qty(\va{r'}) -\va{j}\qty(\va{r'})\va{r'}  \dd[3]{r'} = frac{1}{2}\int \div{\va{j}\va{r}\va{r}} \dd[3]{r'} = frac{1}{2} \oint \va{j}\va{r}\va{r} \dd[3]{r'}$$
+$$ \frac{1}{2}\int \va{r'} \va{j}\qty(\va{r'}) -\va{j}\qty(\va{r'})\va{r'}  \dd[3]{r'} = \frac{1}{2}\int \div{\va{j}\va{r}\va{r}} \dd[3]{r'} = \frac{1}{2} \oint \va{j}\va{r}\va{r} \dd[3]{r'}$$
 If there are no currents inside, the integral is 0.
 
 From second part we can acquire (from bac-cab identity):
 $$A_2  = \frac{1}{2cr^3} \int \va{r} \vdot \qty[\va{r'} \va{j}\qty(\va{r'}) +\va{j}\qty(\va{r'})\va{r'}  ]\dd[3]{r'} = \qty[\frac{1}{2c} \int \va{r'} \cross \va{j}\qty(\va{r'}) \dd[3]{r'} ] \cross \frac{\va{r'}}{r^3} = \va{M} \cross \frac{\va{r}}{r^3}$$ 
 
-If the loop is in plane,  $\int \va{r'} \cross \dd[3]{r'}$ is area and thus
-$$\va{M} = \frac{I}{2c} \int \va{r'} \cross \dd[3]{r'} = \frac{I}{2c} \va{S}$$
+If the loop is in plane,  $\int \va{r'} \cross \dd[3]{r'}$ is double area:
+$$\oint \va{r} \cross \dd{\va{r}} = 2\int \dd{\va{s}}$$
+$$\va{c} \vdot \oint (\va{r} \cross \dd{r}) = \oint \va{c} \vdot (\va{r} \cross \dd{\va{r}}) =c\oint (\va{c} \cross \va{r}) \vdot \dd{\va{r}}b= \int \curl{\va{c} \cross \va{r}} \vdot \dd{\va{c}} = \int 2 \vdot \dd{s}$$
+due to
+$$\curl(\va{a} \cross \va{b}) = \va{a} \qty(\div{\va{b}})-\va{b} \qty(\div{\va{a}}) + \qty(\va{b}\vdot \grad)\va{a} - \qty(\va{a}\vdot \grad)\va{b}$$
+ and thus
+$$\va{M} = \frac{1}{2c} \int \va{r'} \cross \va{j}\qty(\va{r'}) \dd[3]{r'} = \frac{I}{2c} \oint \va{r'} \cross \dd{\va{l'}} = \frac{I}{c} \va{S}$$
 
 \paragraph{Connection with angular momentum}
 $$\va{j} = \rho_e \va{v}_e$$
@@ -32,7 +37,7 @@ $$\dd{\va{F}} = \frac{1}{c} \sum_{\alpha \in \dd{l}} q_\alpha \va{v}_\alpha \cro
 Suppose we have long wire with $\va{I} = I\vu{x}$ and external field $\va{B} = B\va{y}$. If ve move wire in direction $-\vu{z}$, we need to spend energy, however magnetic field doesn't apply work. Where the energy goes? Since now particles have velocity in direction $\vu{z}$, the field accelerates them.
 
 \paragraph{Energy of $\va{B}$}
-In case of electric field we got energy $\frac{E^2}{8\pi}$. Unsuprisingly for magnetic field we get $\frac{B^2}{8\pi}$.
+In case of electric field we got energy $\frac{E^2}{8\pi}$. Unsurprisingly for magnetic field we get $\frac{B^2}{8\pi}$.
 
 Suppose we have infinite plane of current $\dd{I} = K \dd{l}$ and one parallel plane with current in opposite direction.
 
@@ -54,4 +59,4 @@ And thus the work is
 $$\dd{W} = \underbrace{h\dd{l}\dd{l_0}}_{\text{volume element}} \frac{K}{c}B = \dd{V} \frac{B^2}{2\pi} =  \dd{V} \frac{B^2_0}{8\pi}  $$
 i.e., the energy per volume is $\frac{B^2}{8\pi}$.
 
-\paragraph{Energy of magnetic dipole moment in external magnetic field}
+% \paragraph{Energy of magnetic dipole moment in external magnetic field}

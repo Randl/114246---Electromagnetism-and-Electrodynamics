@@ -1,0 +1,70 @@
+$$\va{E}_p = \int \dd[3]{r'}  \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3} \rho_b(\va{r}) + \oint \dd{s'}  \sigma_b (\va{r}') \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3}  $$
+where $\sigma_b = \vu{n} \vdot \va{P}$.
+
+The total field thus is
+$$\va{E} = \va{E}_{free} + \va{E}_p = \int \dd[3]{r'}  \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3} \qty(\rho_{free}(\va{r}) - \div{\va{P}}) + \oint \dd{s'}  \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3} \qty(\sigma_{free} + \vu{n} \vdot \va{P})$$
+
+\subsection{Equations for field in matter}
+$$\div{\va{E}} = 4\pi \rho_{free} - 4\pi \grad{\va{P}}$$
+$$\vu{n}\vdot \qty(\va{E}_2-\va{E}_1) = 4\pi \qty[\sigma_{free} + \vu{n}(\va{P}_1-\va{P}_2) ]$$
+We define electic displacement $\va{D}$:
+$$\va{D} = \va{E} + 4\pi \va{P} \Rightarrow \div{\va{D}} = 4\pi \rho_{free}$$
+$$\vu{n} \vdot (\va{D}_2 - \va{D}_1) = 4\pi \sigma_{free}$$
+
+\paragraph{Connection between $\va{P}$, $\va{E}$, $\va{D}$}
+Define susceptibility $\chi_E$
+$$\va{P} = \chi_E\va{E} \Rightarrow \va{E} + 4\pi \va{P} = \epsilon \va{E}$$
+when $\epsilon = 1+4\pi \xi_E$.
+
+Note that in general case, $\va{D} = \epsilon \va{E}$, where $\epsilon$ is matrix which also might depend on $\va{r}$.
+
+Thus our equations are:
+$$\begin{cases}
+\grad{\va{D}} = 4\pi \rho\\
+\curl{\va{E}} = 0\\
+E_{t,1}=E_{t,2}
+\end{cases}$$
+
+\paragraph{Uniqueness of solution}
+Suppose there are two solutions, $\va{D}_1$ and $\va{D}_2$, define $\va{D} = \va{D}_1-\va{D}_2$.
+$$\int \va{D}\vdot \va{E} \dd[3]{r} = -\int \va{D} \vdot \grad{\phi} \dd[3]{r} = - \int \qty[ \div(\phi\va{D}) - \phi \div{\va{D}}] \dd[3]{r}$$
+Now
+$$\va{D} \vdot \va{E} = \va{E} \epsilon \va{E}$$
+if $\epsilon$ is scalar, $\va{D} \vdot \va{E} = \epsilon E^2$.
+
+Since $\div{\va{D}} = 0$, we get
+$$\int \va{D}\vdot \va{E} \dd[3]{r} = -\int \div(\phi\va{D}) \dd[3]{r} =-\oint \va{\phi} \va{D} \vdot \dd{\va{s}}$$
+
+If $\va{D} \vdot \vu{n} = 0 $ or $\phi=0$ on the boundary, we get $\int \va{D}\vdot \va{E} \dd[3]{r} = 0$. Now if $\epsilon$ is positive (or positive defined in case of matrix), we conclude that $\va{E}=0$. This provides us with two kinds of boundary conditions - $\va{D} \vdot \vu{n} $ or $\phi$ should be given on boundary.
+
+\paragraph{Force on test charge}
+Note that force on test charge in dielectric matter is $\va{E}q$.
+\paragraph{Example}
+Suppose we have matter with $\epsilon>1$ inside other matter with $\epsilon=1$. Also there is point charge inside first one (located in origin).Then
+$$\va{D}= \frac{q}{r^2}\vu{r}$$
+$$\va{E} = \frac{\va{D}}{r^2}\vu{r}= \frac{q}{\epsilon r^2}\vu{r}$$
+However
+$$\va{p} = \frac{\va{D} - \va{E}}{4\pi}$$
+and outside of origin
+$$\div{\va{p}} = 0$$
+\paragraph{Surface charge}
+There is discontinuity in normal part of $\va{E}$ and similarly there is discontinuity in normal part of $\va{D}$
+\paragraph{$\epsilon$ of conductor}
+Since in conductor there is no field, we an choose $\epsilon=\infty$ 
+\paragraph{Example}
+Suppose we have dieletric matter in $x>0$ and a charge $q$ in $x=-d$ in vacuum.
+
+First of all,$\rho_d = 0$, since there is charges inside of dielectric. Thus the only source of field is $\sigma_b$.
+$$\sigma_b = \vu{n} \vdot \va{P} = \vu{n} \vdot \qty(\chi_E \va{E}) = \chi_E \vu{n} \vdot \va{E}$$
+$$\va{E} = \va{E}_q + \va{E}_{\sigma_b}$$
+$$\va{E}_q \vdot \vu{n}= -\frac{qd}{(R^2+d^2)^{\frac{3}{2}}}$$
+$$\vu{n} \vdot \va{E}_{\sigma_b} = -2\pi \sigma_b$$
+$$\sigma_b = \chi_E \qty[ -\frac{qd}{(R^2+d^2)^{\frac{3}{2}}} -  2\pi \sigma_b ]$$
+Thus
+$$\sigma_b = -\frac{\chi_E}{1+2\pi \chi_E} \frac{qd}{(R^2+d^2)^{\frac{3}{2}}} $$
+and
+$$q_b = \int \sigma_b \dd{s} = -\frac{2\pi \chi_e}{1+2\pi \chi_e} q$$
+And thus in limit $\chi_e \to \infty $ we get $q_b \to -q$.
+
+\subsection{Magnetic field in matter}
+Describe molecules as magnetic dipole. Then their dipole moment $\va{\mu}$ will try to turn into direction $\va{B}$. 
