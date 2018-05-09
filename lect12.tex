@@ -1,0 +1,120 @@
+$$\va{\mu} = \va{M}(\va{r}) \Delta V$$
+Then
+$$\va{A}_n = \int \dd[3]{r'}\va{M}(\va{r}) \cross \frac{\va{r}-\va{r}'}{\abs{\va{r}-\va{r}'}^3} = \int \dd[3]{r'}\va{M}(\va{r}) \cross \grad_{r'} \frac{1}{\abs{\va{r}-\va{r}'}} = \oint \frac{\va{M}(\va{r}') \cross \dd{\va{r}'}}{\abs{\va{r}-\va{r}'}} + \int \frac{\grad_{r'}\cross \va{M}(\va{r}')}{\abs{\va{r}-\va{r}'}} \dd[3]{r'}$$
+And total potential is
+$$\va{A}_{tot} = \va{A}_{free} + \va{A}_{m} = \frac{1}{c} \int \dd[3]{r'} \frac{\va{j}(\va{r}') + c \curl{\va{M}(\va{r}')}}{\abs{\va{r}-\va{r}'}} + \frac{1}{c} \int \frac{\va{K}(\va{r}')\dd{s'} + c\va{M}(\va{r}') \cross \dd{\va{s}'}}{\abs{\va{r}-\va{r}'}}$$
+We denote
+$$\va{j}_b = c \curl{\va{M}}$$
+and
+$$\va{K}_b = c\va{M} \cross \vu{n}$$
+\paragraph{Equations ofbmagnetic field in matter}
+$$\curl{\va{B}} = \frac{4\pi}{c} \qty(\va{j} + c\curl{\va{M}})$$
+Define
+$$\va{H} = \va{B} - 4\pi \va{M}$$
+And thus
+$$\curl{\va{H}} = \frac{4\pi}{c} \va{j}$$
+We define $\chi_M$ as
+$$\va{M}(\va{r}) = \chi_m \va{H}$$
+and
+$$\va{B}= (1+4\pi \chi_M) \va{H} = \mu \va{H}$$
+$\mu$ is called permeability.
+
+\section{Time-dependent $\va{E}$ and $\va{B}$ }
+\paragraph{Faraday's law of induction}
+$\va{B}(t)$ induces current in closed circuit.
+Define $\Phi$, flux of magnetic field
+$$\Phi = \int \va{B} \vdot \dd{\va{s}}$$
+then EMF, $\mathcal{E}$ is
+$$\mathcal{E} = \oint \va{E} \vdot \dd{\va{r}} = -\frac{1}{c} \dv{\Phi}{t} =-\frac{1}{c} \dv{t} \int \pdv{\va{B}}{t} \vdot \dd{\va{s}}$$
+\paragraph{Lenz's law}
+The direction of current induced in a conductor by a changing magnetic field due to induction is such that it creates a magnetic field that opposes the change that produced it.
+\paragraph{Different description of Faraday's law}
+Suppose we have $\va{B}(\va{r})$ independent on time. For some loop of current
+$$\va{F} = \frac{q}{c} \va{v} \cross \va{B}$$
+Integral on force on charge over the loop
+$$\oint \frac{q}{c} (\va{v} \cross \va{B}) \vdot \dd{\va{r}}$$
+And thus
+$$\va{E} = \frac{\va{v}}{c} \cross \va{B}_{lab}$$
+Then EMF is
+\begin{align*}
+\mathcal{E} = \oint \frac{1}{c} (\va{v} \cross \va{B}) \vdot \dd{\va{r}} = \frac{1}{c} \int \curl(\va{v} \cross \va{B}) \vdot \dd{\va{s}} = \frac{1}{c} \int \qty[\va{v}\qty(\div{\va{B}}) - (v \vdot \grad)\va{B} ] \vdot \dd{\va{s}} =\\= -\frac{1}{c} \int \qty(\va{v} \vdot \grad) \va{B} \vdot \dd{\va{s}} = -\frac{1}{c} \int \dv{\va{B}}{t} \vdot \dd{\va{s}} = -\frac{1}{c} \dv{t} \int \va{B} \vdot \dd{\va{s}}
+\end{align*}
+\paragraph{Full derivative}
+$$\dv{F(\va{r}, t)}{t} = \lim_{\Delta t \to 0} \frac{F(\va{r}\qty\big(t+ \Delta t), t+\Delta t) - F\qty\big(\va{r}(t), t)}{\Delta t} = \pdv{F}{t} + \qty(\va{v} \vdot \grad) F$$
+
+\paragraph{Example}
+$$\va{B}= \va{B}(\va{r}, t)$$
+$$\int\limits_{S_0} \curl{\va{E}} \vdot \dd{\va{s}}=\oint \va{E} \vdot \dd{\va{r}} = -\frac{1}{c} \int\limits_{S_0} \pdv{\va{B}}{t} \vdot \dd{\va{s}}$$
+Since this is independent on $S_0$, we get
+$$ \curl{\va{E}} = -\frac{1}{c} \pdv{\va{B}}{t}$$
+which is one of Maxwell's equations:
+\paragraph{Maxwell's equations}
+$$\begin{cases}
+\div{\va{D}} = 4\pi \rho\\
+\curl{E} = -\frac{1}{c} \pdv{\va{B}}{t} \\
+\div{\va{B}} = 0\\
+\curl{\va{H}} = \frac{4\pi}{c} \va{j} + \frac{1}{c}\pdv{\va{D}}{t}
+\end{cases}$$
+$ \frac{1}{c}\pdv{\va{D}}{t}$ is called displacement current, we can see that it's needed from $\div{\curl{H}} = 0$:
+$$\pdv{\rho}{t} + \div{\va{j}} = 0$$
+
+If there were magnetic monopoles we would have, in vacuum:
+$$\begin{cases}
+	\div{\va{E}} = 4\pi \rho\\
+	\curl{E} = -\frac{1}{c} \pdv{\va{B}}{t} \textcolor{red}{-\frac{4\pi}{c}\va{j}_m} \\
+	\div{\va{B}} = 0\textcolor{red}{+4\pi \rho_m}\\
+	\curl{\va{B}} = \frac{4\pi}{c} \va{j} + \frac{1}{c}\pdv{\va{D}}{t}
+\end{cases}$$
+i.e., equations are fully symmetric.
+\paragraph{Duality transformation}
+If we define 
+$$\begin{pmatrix}
+\rho_e\\\rho_m
+\end{pmatrix} = \begin{pmatrix}
+\cos \psi&-\sin \psi\\\sin \psi&\cos \psi
+\end{pmatrix}\begin{pmatrix}
+\rho_e'\\\rho_m'
+\end{pmatrix}$$
+$$\begin{pmatrix}
+\va{E}\\\va{B}
+\end{pmatrix} = \begin{pmatrix}
+\cos \psi&-\sin \psi\\\sin \psi&\cos \psi
+\end{pmatrix}\begin{pmatrix}
+\va{E}'\\\va{B}'
+\end{pmatrix}$$
+new quantities fulfill generalized Maxwell equations. If for all particles $\frac{q_m}{q_e} = \text{const}$, we can choose $\psi$ such that $\rho_m = 0$.
+
+\subsection{Relativity}
+\paragraph{Lorentz trasformation}
+$$\begin{cases}
+x = \frac{x'+v't}{\sqrt{1-\frac{v^2}{c^2}}}\\
+t = \frac{t'+\frac{v}{c^2}x'}{\sqrt{1-\frac{v^2}{c^2}}}\\
+y=y'\\
+z=z'
+\end{cases}$$
+\paragraph{4-vector}
+$x^0=ct$, $x^1=x$, $x^2=y$, $x^3=z$, this is contravariant 4-vector
+$$x^i = \qty(ct, \va{r})$$
+Covarient 4-vector is
+$$x_i = \qty(ct,, -\va{r})$$
+Einstein summation convention is
+$$x_ix^i = \sum_{i=0}^3 = x_ix^i = (ct)^2 - r^2$$
+\paragraph{Metric}
+Define $g_{ij}$ such 
+$$x_i = g_{ij} x_j$$
+i.e.,
+$$g = \begin{pmatrix}
+1&0&0&0\\
+0&-1&0&0\\
+0&0&-1&0\\
+0&0&0&-1
+\end{pmatrix}$$
+Denote $\eta=g$.
+\paragraph{Examples of metrics}
+In 3D, we have identity metric
+$$\dd{r^2} = \dd{x^2} + \dd{y^2} + \dd{z^2}$$
+However on sphere 
+$$\dd{l^2} = \sin[2](\theta) \dd{\phi^2} +b\dd{\theta^2}$$
+i.e. metric is not identity.
+\paragraph{4-vector in electromagteics}
+$$A^i = \qty(\phi, \va{A})$$
