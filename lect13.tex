@@ -1,0 +1,79 @@
+Then
+$$A_iA^i = {A^0}^2 + \va{A}^2$$
+
+\paragraph{Transformation of 4-vector}
+$$A^0 = \frac{{A^0}' + \frac{v}{c}{A^1}'}{\sqrt{1-\frac{v^2}{c^2}}}$$
+$$A^1 = \frac{{A^1}' + \frac{v}{c}{A^0}'}{\sqrt{1-\frac{v^2}{c^2}}}$$
+
+For covariant vector
+$$\phi = \frac{{A^0}' - \frac{v}{c}{A^1}'}{\sqrt{1-\frac{v^2}{c^2}}}$$
+$$A^1 = \frac{{A^1}' - \frac{v}{c}{A^0}'}{\sqrt{1-\frac{v^2}{c^2}}}$$
+
+We can write in matrix form
+$$A^i = L_j^i {A^j}'$$
+\paragraph{Tensor}
+Example of tensor wold be $A^iA^j$. To apply transform on tensor, we apply 
+$$T^{lm} = L_{i}^l L_j^m {T'}^{ij}$$
+\paragraph{Example}
+$$\dd{s^2} = \dd{x_i} \dd{x^i} = c^2\dd{t^2} - (\dd{\va{r}})^2 = c^2\dd{t^2} \qty(1-\frac{\va{v}^2}{c^2}) \Rightarrow \dd{s} = \dd{t} \sqrt{1+\frac{v^2}{c^2}}$$
+We define velocity
+$$u^i = \dd{x^i}{s} = \qty(\frac{c\dd{t}}{c\dd{t}\sqrt{1-\frac{v^2}{c^2}}}, \frac{\dd{r}}{c\dd{t}\sqrt{1-\frac{v^2}{c^2}}}) = \qty(\frac{c\dd{t}}{c\dd{t}\sqrt{1-\frac{v^2}{c^2}}}, \frac{\dd{r}}{c\dd{t}\sqrt{1-\frac{v^2}{c^2}}}) = \qty(\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}, \frac{\va{v}}{c\sqrt{1-\frac{v^2}{c^2}}})$$
+
+Note that
+$$u_iu^i = \dv{x^i}{s}\dv{x_i}{s} = \frac{\dd{x_i}\dd{x^i}}{\dd{s^2}}  = \frac{\dd{s^2}}{\dd{s^2}} = 1$$
+
+Now define 4-vector of energy and momentum $p^i = mcu^i$. Then
+$$p^y = \frac{m\dd{y}}{\dd{s}}$$
+is conserved in all frames of reference.
+
+\paragraph{Lagrangian of particle in electromagnetic field}
+$$S =\int \mathcal{L}(t) \dd{t}$$
+$$\mathcal{L}_{free} = -mc^2\sqrt{1-\frac{v^2}{c^2}}$$
+Note that $\mathcal{L} \dd{t}$ is $\dd{s}$, which is invariant.
+
+$$\mathcal{L} = -mc^2\sqrt{1-\frac{v^2}{c^2}} - q\phi +\frac{q}{c}\va{A} \vdot \va{v}$$
+
+Then generalized momentum:
+$$\va{P} = \pdv{\mathcal{L}}{\va{v}} =\underbrace{ \frac{m\va{v}}{\sqrt{1-\frac{v^2}{c^2}}}}_{\va{P}_0} + \frac{q}{c}\va{A}$$
+And Hamiltonian, or energy
+$$\mathcal{H}= \va{v} \pdv{\mathcal{L}}{\va{v}}  - \mathcal{L} =  \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}} + q\phi$$
+
+Then movement equations are
+$$\dv{t} \pdv{\mathcal{L}}{\va{v}} - \pdv{\mathcal{L}}{\va{r}} = 0$$
+$$\dv{t} \qty(\va{P}_0+\frac{q}{c}\va{A}) = \frac{q}{c} \grad(\va{A} \vdot \va{v}) - q\grad{\phi}$$
+$$\dv{\va{A}}{t} = \pdv{\va{A}}{t} + (\va{v} \vdot \grad)\va{A}$$
+$$\frac{q}{c}\grad(\va{A} \vdot \va{v}) = \frac{q}{c} \qty(\va{v} \vdot \grad) \va{V} + \frac{q}{c} v \cross \qty(\curl{\va{A}})$$
+$$\dv{P_0}{t} = -\frac{q}{c} \pdv{\va{A}}{t} - q\grad{\phi} + \frac{q}{c} \grad(\va{A} \vdot \va{v})$$
+
+Define
+$$\va{B} = \curl{\va{A}}$$
+and
+$$\va{E} = -\frac{1}{c} \pdv{\va{A}}{t} - \grad{\phi}$$
+in this case we get Faraday's law:
+$$\curl{\va{E}} = -\frac{1}{c} \pdv{t} \va{B}$$
+\paragraph{Relativity}
+$$\int \mathcal{L} \dd{t} = \int \qty[-mc\dd{s} -\frac{q}{c} A_i \dd{x^i}]$$
+$$A_i\dd{x^i} =A_0\dd{x^0} + \va{A} \vdot \dd{\va{r}} = c\phi \dd{t} - \va{A} \vdot \va{v}\dd{t} $$
+$$\delta S = 0 \Rightarrow -\int \qty[-mc^2 \frac{\dd{x_i}\dd{\delta x^i}}{\dd{s}} + \frac{q}{c} A_i \dd{\delta x^i} + \frac{q}{c} \delta A_i \dd{x^i}] = 0$$
+Now
+$$\delta A_i = \pdv{A_i}{x^k}\delta x^k$$
+After manipulations we get
+$$\delta S = \int \qty[mc\dv{u_i}{s} - \frac{q}{c}\qty(\pdv{A_k}{x_i} - \pdv{A_i}{x^k})] \delta x^i \dd{s} = 0$$
+Define
+$$F_{ik} = \pdv{A_k}{x_i} - \pdv{A_i}{x^k} $$
+and movement equation 
+$$m\dv{u_i}{s} = \frac{q}{c} F_{ik} u^k$$
+$$F = \begin{pmatrix}
+0&E_x&E_y&E_z\\
+-E_x&0&-B_z&B_y\\
+-E_y&B_z&0&-B_x\\
+-E_z&-B_y&-B_x&0
+\end{pmatrix}$$
+or, rather
+$$F_{ik} = \qty(\va{E}, \va{B})$$
+and contravarient
+$$F^{ik} = \qty(-\va{E}, \va{B})$$
+\paragraph{Example}
+For $i=0$;
+$$mc \dv{u^0}{s} = \frac{q}{c} F^{0k}u_k = \frac{q}{c} (-E_x)\frac{-v_x}{\sqrt{1-\frac{v^2}{c^2}}}+\frac{q}{c} (-E_y)\frac{-v_y}{\sqrt{1-\frac{v^2}{c^2}}}+\frac{q}{c} (-E_z)\frac{-v_z}{\sqrt{1-\frac{v^2}{c^2}}}$$
+$$\dd{} \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}} = q \va{E} \vdot \va{v}$$
