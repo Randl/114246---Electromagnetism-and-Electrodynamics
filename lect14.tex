@@ -1,0 +1,117 @@
+% TODO
+\paragraph{4-vector of energy and momentum}
+$$P^i = \qty(\frac{mc}{\sqrt{1-\frac{v^2}{c^2}}} +\frac{q}{c}\phi, \va{P} + \frac{q}{c}\va{A})$$
+$$A_{i}\eta^{ij} = A^j$$
+$$A_i = \eta_{ij}A^j$$
+\paragraph{Invariants of electromagnetic field}
+In case of tensor
+$$F_k^i = \eta_{kj}F^{ij}$$
+$$F_{kl} = \eta_{li}\eta_{kj}F^{ij}$$
+$$F_{ij}F^{ij} = B^2-E^2$$
+and
+$$\epsilon^{ijkl}F_{ij}F^{kl} = \va{E} \vdot \va{B}$$
+are invariant, where $\epsilon^{iklm}$ is Levi-Civita tensor.
+
+That means that if $\va{E} \perp \va{B}$ or $\abs{\va{E}} = \abs{\va{B}}$
+
+Also if $\va{E} \vdot \va{B} = 0$ there exists frame of reference where one of them is zero (which one depends on $E^2-B^2$). If one of invariants is non-zero, there always exists frame of reference where they are parallel.
+
+$$\epsilon^{ijkl}F_{ij}F_{kl} = 4 \pdv{x^i} \qty(\epsilon^{ijkl}A_k \pdv{x_l} A_m)$$
+which is $4D$ divergence. 
+
+\paragraph{Maxwell equations}
+$$\dv{\va{P}}{t} = q\va{E} + \frac{q}{c} \va{v} \cross \va{B}$$
+where
+$$\va{E} = -\grad{\phi} - \frac{1}{c} \pdv{\va{A}}{t}$$ 
+and
+$$\va{B} = \curl{\va{A}}$$
+Thus
+$$\curl{E} = -\frac{1}{c} \pdv{t} \curl{\va{A}} = -\frac{1}{c} \pdv{\va{B}}{t}$$
+and
+$$\div{\va{B}} = \grad(\curl{A}) = 0$$
+i.e., first pair of Maxwell equations is determined exclusively by movement equations and doesn't require fields at all.
+
+For second pair of Maxwell equations lets look at $\mathcal{L}$ of $A^i$ itself:
+$$S = S_m+S_{mf}+S_f$$
+where $S_m$ is action of particles, $S_{mf}$ is action of particle-field interactions and $S_f$ is filed action.
+$$S_m = \sum_{particles} mc \int_a^b \dd{s}$$
+$$S_{mf} = -\sum \frac{q}{c} \int A_k \dd{x^k}$$
+$$\sum q A_k \dd{x^k} = \rho \dd[3]{x} A_k \dv{x^k}{t} \dd{t} = \rho \dv{x^k}{t} A_k \dd[3]{x} \dd{t} = j^k A_k \dd[3]{x} \dd{t} = j^k A_k \frac{\dd{\Omega}}{c}$$
+where $\dd{\Omega} = \dd[4]{x}$, i.e.
+$$S_{mf} = -\frac{1}{c^2} \int j^k A_k \dd{\Omega}$$
+\subsection{Noether's theorem: connection between gauge invariance and charge conservation}
+% Landau Field theory paragraph 27 and around
+Note that $A_i \to A_i - \pdv{f}{x^i}$ doesn't change the fields:
+$$\begin{cases}
+\va{E} = -\frac{1}{c} \pdv{\va{A}}{t} - \grad{\phi}\\
+\va{B}= \curl{\va{A}}
+\end{cases}$$
+Substituting
+$$\begin{cases}
+\tilde{\phi} = \phi - \frac{1}{c}\pdv{f}{t}\\
+\va{\tilde{A}} = \va{A} + \grad{f}
+\end{cases}$$
+$$\curl{\va{\tilde{A}}} =\curl(\va{A} + \grad{\phi}) = \curl{\va{A}}$$
+$$-\frac{1}{c} \pdv{\va{\tilde{A}}}{t} - \grad{\tilde{\phi}} = -\frac{1}{c} \pdv{t} \qty(\va{A} + \grad{f}) - \grad(\phi - \frac{1}{c} \pdv{f}{t}) = -\frac{1}{c} \pdv{\va{A}}{t} - \grad{\phi}$$
+
+$$\tilde{S}_{mf} = -\frac{1}{c^2} \int j^i \tilde{A}_i \dd{\Omega} = -\frac{1}{c^2}\int j^i A_i \dd{\Omega} - \frac{1}{c^2}\int j^i \pdv{f}{x^i} \dd{\Omega} = S_{mf} - \frac{1}{c^2} \int \qty[\pdv{x^i} (fj^i) - f\pdv{j^i}{x^i}] \dd{\Omega}$$
+From Gauss, first term of is 0, and thus the second has to be 0 too, resulting in charge conservation (or the other way around, from charge conservation we get gauge invariance).
+\paragraph{Action of field $S_f$}
+\begin{enumerate}
+	\item Superposition princples dictates quadratic form in fields $\va{B}$ and $\va{E}$
+	\item Action depends on fields and not on potential
+	\item $\mathcal{L}$ has to be scalar, i.e. invariant under Lorentz transformation.
+\end{enumerate}
+Thus the action has of form $a\int F_{ik}F^{ik} \dd{\Omega}$. Since $F_{ik}F^{ik}=2(B^2-E^2)$, and $\va{E}$ contains $\pdv{\va{A}}{t}$, $a$ is negative so that action has minimum.
+
+Thus the total action is
+$$S = -\sum_{\text{particles}} \int mc \dd{s} - \frac{1}{c^2}A_i j^i \dd{\Omega} - \frac{1}{16\pi c} \int F_{ik}F^{ik} \dd{\Omega}$$
+% Landau paragraph 30
+Equating functional differential of $S$ to $0$:
+$$0 = \delta S = -\frac{1}{c} \int \qty[\frac{1}{c} j^i \delta A_i + \frac{1}{8\pi} F^{ik}F_{ik}] \dd{\Omega}$$
+
+Substituting
+$$\delta F_{ik} = \delta \qty[\pdv{A_n}{x^i} - \pdv{A_i}{x^k}] = \pdv{\delta A_k}{x^i}-\pdv{\delta A_i}{x^k}$$
+and
+$$F^{ik} \pdv{\delta A_k}{x^i} =F^{ki}  \pdv{\delta A_i}{x^k} = - F^{ik} c $$
+we get
+$$F^{ik} \delta F_{ik} = -2 F^{ik}\pdv{\delta A_i}{x^k}  $$
+and thus
+$$\delta S = -\frac{1}{c} \int \qty[\frac{1}{c} j^i \delta A_i - \frac{1}{4\pi} F^{ik}\pdv{\delta A_i}{x^k} ] \dd{\Omega}$$
+and since
+$$F^{ik}\pdv{\delta A_i}{x^k} = \pdv{\qty(F^{ik}\delta A_i)}{x^k} - \pdv{F^{ik}}{x^k} \delta A_i$$
+applying Gauss law
+
+$$\delta S = -\frac{1}{c} \int \qty(\frac{1}{c} j^i  + \frac{1}{\pi}\pdv{F^{ik}}{x^k})\delta A_i \dd{\Omega}- \frac{1}{4\pi c} \int F^{ik} \delta A_i \dd{S_k}$$
+Since surface integral is zero, we get
+
+$$\int \qty(\frac{1}{c} j^i  + \frac{1}{\pi}\pdv{F^{ik}}{x^k})\delta A_i \dd{\Omega} = 0$$
+$$ \frac{1}{\pi}\pdv{F^{ik}}{x^k} = \frac{4\pi}{c} j^i  $$
+
+
+For $i=0$:
+$$\pdv{F^{01}}{x}+\pdv{F^{02}}{y}+\pdv{F^{03}}{z} = -\frac{4\pi }{c} j^0$$
+Since $j^0 = c\rho$, we get
+$$\div{\va{E}} = 4\pi \rho$$
+For $i=1$:
+$$\pdv{F^{12}}{y}+\pdv{F^{13}}{z}+\frac{1}{c}\pdv{F^{10}}{t} = -\frac{4\pi }{c} j^1$$
+$$\pdv{B_z}{y} - \pdv{B_y}{z} - \frac{1}{c} \pdv{E_x}{t} = \frac{4\pi}{c} j_x$$
+i.e.,
+$$\curl{\va{B}} = \frac{4\pi}{c} \va{j} + \frac{1}{c} \pdv{\va{E}}{t}$$
+\paragraph{Energy density and energy flux}
+$$\begin{cases}
+\curl{\va{E}} = - \frac{1}{c} \pdv{\va{B}}{t}\\
+\curl{\va{B}} =  \frac{1}{c} \pdv{\va{B}}{t} + \frac{4\pi}{c} \va{j}\\
+\div{\va{B}}=0\\
+\div{\va{E}} = 4\pi \rho
+\end{cases}$$
+$$\frac{1}{c} \va{E} \vdot \pdv{\va{E}}{t} + \frac{1}{c} \va{B}\vdot \pdv{\va{B}}{t} = \va{E} \vdot \qty[\curl{\va{B}} - \frac{4\pi}{c} \va{j}] - \va{B} \vdot \div{\va{E}} $$
+$$\frac{1}{2c} \pdv{t} \qty( E^2+B^2) = - \frac{4\pi}{c} \va{j} \vdot \va{E}  - \div(\va{E} \cross \va{B})$$
+$$ \pdv{t} \frac{E^2+B^2}{8\pi} = - \va{j} \vdot \va{E}  - \div(\va{S})$$
+where $\va{S} = \frac{c}{4\pi} \va{E} \cross \va{B}$ is Poynting vector.
+
+Physical meaning is that by integrating over the whole space
+$$\dv{t} \int \frac{E^2+B^2}{8\pi} \dd[3]{r}= - \int \va{j} \vdot \va{E}] \dd[3]{r} - \underbrace{\oint \va{S} \vdot \dd{\va{a}}}_{0 \text{ for bounds in } \infty}$$
+$$ \int \va{j} \vdot \va{E}] \dd[3]{r} = \sum q \va{v} \vdot \va{E} = \sum \va{v} \vdot \qty(m \dv{\va{v}}{t}) = \dv{t} (\sum \frac{1}{2} m v^2)$$
+i.e., denoting kinetic energy by $K$,
+$$\dv{t} \qty[\frac{E^2+B^2}{8\pi}  + K] = 0$$
