@@ -1,0 +1,89 @@
+\paragraph{Action of field $S_f$}
+\begin{enumerate}
+	\item Superposition princples dictates quadratic form in fields $\va{B}$ and $\va{E}$
+	\item Action depends on fields and not on potential
+	\item $\mathcal{L}$ has to be scalar, i.e. invariant under Lorentz transformation.
+\end{enumerate}
+Thus the action has of form $a\int F_{ik}F^{ik} \dd{\Omega}$ (second invariant is full derivative). Since $F_{ik}F^{ik}=2(B^2-E^2)$, and $\va{E}$ contains $\pdv{\va{A}}{t}$, $a$ is negative so that action has minimum.
+
+Thus the total action is
+$$S = -\sum_{\text{particles}} \int mc \dd{s} - \frac{1}{c^2}A_i j^i \dd{\Omega} - \frac{1}{16\pi c} \int F_{ik}F^{ik} \dd{\Omega}$$
+% Landau paragraph 30
+Equating functional differential of $S$ to $0$:
+$$0 = \delta S = -\frac{1}{c} \int \qty[\frac{1}{c} j^i \delta A_i + \frac{1}{8\pi} F^{ik}\delta F_{ik}] \dd{\Omega}$$
+
+Substituting
+$$\delta F_{ik} = \delta \qty[\pdv{A_k}{x^i} - \pdv{A_i}{x^k}] = \pdv{\delta A_k}{x^i}-\pdv{\delta A_i}{x^k}$$
+and
+$$F^{ik} \pdv{\delta A_k}{x^i} =F^{ki}  \pdv{\delta A_i}{x^k} = - F^{ik} \pdv{\delta A_i}{x^k} $$
+we get
+$$F^{ik} \delta F_{ik} = -2 F^{ik}\pdv{\delta A_i}{x^k}  $$
+and thus
+$$\delta S = -\frac{1}{c} \int \qty[\frac{1}{c} j^i \delta A_i - \frac{1}{4\pi} F^{ik}\pdv{\delta A_i}{x^k} ] \dd{\Omega}$$
+and since
+$$F^{ik}\pdv{\delta A_i}{x^k} = \pdv{\qty(F^{ik}\delta A_i)}{x^k} - \pdv{F^{ik}}{x^k} \delta A_i$$
+applying Gauss law
+
+$$\delta S = -\frac{1}{c} \int \qty(\frac{1}{c} j^i  + \frac{1}{\pi}\pdv{F^{ik}}{x^k})\delta A_i \dd{\Omega}- \frac{1}{4\pi c} \int F^{ik} \delta A_i \dd{S_k}$$
+Since surface integral is zero, we get
+
+$$\int \qty(\frac{1}{c} j^i  + \frac{1}{\pi}\pdv{F^{ik}}{x^k})\delta A_i \dd{\Omega} = 0$$
+$$ \frac{1}{\pi}\pdv{F^{ik}}{x^k} = \frac{4\pi}{c} j^i  $$
+
+
+For $i=0$:
+$$\pdv{F^{01}}{x}+\pdv{F^{02}}{y}+\pdv{F^{03}}{z} = \frac{4\pi }{c} j^0$$
+Since $j^0 = c\rho$, we get
+$$\div{\va{E}} = 4\pi \rho$$
+For $i=1$:
+$$\pdv{F^{12}}{y}+\pdv{F^{13}}{z}+\frac{1}{c}\pdv{F^{10}}{t} = -\frac{4\pi }{c} j^1$$
+$$\pdv{B_z}{y} - \pdv{B_y}{z} - \frac{1}{c} \pdv{E_x}{t} = \frac{4\pi}{c} j_x$$
+i.e.,
+$$\curl{\va{B}} = \frac{4\pi}{c} \va{j} + \frac{1}{c} \pdv{\va{E}}{t}$$
+\paragraph{\textcolor{red}{What if $a$ was positive?}}
+
+$$\begin{cases}
+\curl{\va{E}} = - \frac{1}{c} \pdv{\va{B}}{t}\\
+\curl{\va{B}} =  -\frac{1}{c} \pdv{\va{B}}{t} + \frac{4\pi}{c} \va{j}\\
+\div{\va{B}}=0\\
+\div{\va{E}} = -4\pi \rho
+\end{cases}$$
+Same charges start to attract.
+
+In addition, we get inversion of Lenz law, i.e. induced current increases the magnetic field and magnetic field diverges.
+\paragraph{Energy density and energy flux}
+$$\begin{cases}
+\curl{\va{E}} = - \frac{1}{c} \pdv{\va{B}}{t}\\
+\curl{\va{B}} =  \frac{1}{c} \pdv{\va{B}}{t} + \frac{4\pi}{c} \va{j}\\
+\div{\va{B}}=0\\
+\div{\va{E}} = 4\pi \rho
+\end{cases}$$
+$$\frac{1}{c} \va{E} \vdot \pdv{\va{E}}{t} + \frac{1}{c} \va{B}\vdot \pdv{\va{B}}{t} = \va{E} \vdot \qty[\curl{\va{B}} - \frac{4\pi}{c} \va{j}] - \va{B} \vdot \div{\va{E}} $$
+$$\frac{1}{2c} \pdv{t} \qty( E^2+B^2) = - \frac{4\pi}{c} \va{j} \vdot \va{E}  - \div(\va{E} \cross \va{B})$$
+$$ \pdv{t} \frac{E^2+B^2}{8\pi} = - \va{j} \vdot \va{E}  - \div(\va{S})$$
+where $\va{S} = \frac{c}{4\pi} \va{E} \cross \va{B}$ is Poynting vector.
+
+Physical meaning is that by integrating over the whole space
+$$\dv{t} \int \frac{E^2+B^2}{8\pi} \dd[3]{r}= - \int \va{j} \vdot \va{E}] \dd[3]{r} - \underbrace{\oint \va{S} \vdot \dd{\va{a}}}_{0 \text{ for bounds in } \infty}$$
+$$ \int \va{j} \vdot \va{E}] \dd[3]{r} = \sum q \va{v} \vdot \va{E} = \sum \va{v} \vdot \qty(m \dv{\va{v}}{t}) = \dv{t} (\sum \frac{1}{2} m v^2)$$
+i.e., denoting kinetic energy by $K$,
+$$\dv{t} \qty[\frac{E^2+B^2}{8\pi}  + K] = 0$$
+
+\paragraph{Maxwell equations in matter}
+$$\begin{cases}
+\curl{\va{E}} = - \frac{1}{c} \pdv{\va{B}}{t}\\
+\div{\va{B}}=0\\
+\curl{\va{H}} =  \frac{1}{c} \pdv{\va{D}}{t} + \frac{4\pi}{c} \va{j}\\
+\div{\va{D}} = 4\pi \rho
+\end{cases}$$
+
+Now
+\begin{align*}
+\curl{\va{B}} = \frac{4\pi}{c} \qty(\va{j}_f+\va{j}_b) +\frac{1}{c} \pdv{t} \qty(\va{D}-\va{P}) =\frac{4\pi}{c} \va{j}_f+\frac{4\pi}{c} \va{j}_b +\frac{1}{c} \pdv{\va{D}}{t} -\pdv{\va{P}}{t} 
+\end{align*}
+But
+$$4\pi\va{j}_b = c \curl{\va{M}} - \pdv{\va{P}}{t} $$
+
+\begin{align*}
+\curl{\va{B}} =4\pi \curl{\va{B}} +\frac{4\pi}{c} \va{j}_f +\frac{1}{c} \pdv{\va{D}}{t} -\pdv{\va{P}}{t} 
+\end{align*}
