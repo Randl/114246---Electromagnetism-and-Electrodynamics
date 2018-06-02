@@ -1,4 +1,4 @@
-\paragraph{Action of field $S_f$}
+\subsection{Action of field $S_f$}
 \begin{enumerate}
 	\item Superposition princples dictates quadratic form in fields $\va{B}$ and $\va{E}$
 	\item Action depends on fields and not on potential
@@ -65,9 +65,13 @@ where $\va{S} = \frac{c}{4\pi} \va{E} \cross \va{B}$ is Poynting vector.
 
 Physical meaning is that by integrating over the whole space
 $$\dv{t} \int \frac{E^2+B^2}{8\pi} \dd[3]{r}= - \int \va{j} \vdot \va{E}] \dd[3]{r} - \underbrace{\oint \va{S} \vdot \dd{\va{a}}}_{0 \text{ for bounds in } \infty}$$
-$$ \int \va{j} \vdot \va{E}] \dd[3]{r} = \sum q \va{v} \vdot \va{E} = \sum \va{v} \vdot \qty(m \dv{\va{v}}{t}) = \dv{t} (\sum \frac{1}{2} m v^2)$$
+Since
+$$m\dv{\va{v}}{t} = q\va{E} + \frac{q}{c} \va{v} \cross \va{B}$$
+$$ \int \va{j} \vdot \va{E} \dd[3]{r} = \sum q \va{v} \vdot \va{E} = \sum \va{v} \vdot \qty(m \dv{\va{v}}{t}) = \dv{t} (\sum \frac{1}{2} m v^2)$$
 i.e., denoting kinetic energy by $K$,
 $$\dv{t} \qty[\frac{E^2+B^2}{8\pi}  + K] = 0$$
+
+\paragraph{Exercise} Derive the same equations in relativistic.
 
 \paragraph{Maxwell equations in matter}
 $$\begin{cases}
@@ -79,11 +83,13 @@ $$\begin{cases}
 
 Now
 \begin{align*}
-\curl{\va{B}} = \frac{4\pi}{c} \qty(\va{j}_f+\va{j}_b) +\frac{1}{c} \pdv{t} \qty(\va{D}-\va{P}) =\frac{4\pi}{c} \va{j}_f+\frac{4\pi}{c} \va{j}_b +\frac{1}{c} \pdv{\va{D}}{t} -\pdv{\va{P}}{t} 
+\curl{\va{B}} = \frac{4\pi}{c} \qty(\va{j}_f+\va{j}_b) +\frac{1}{c} \pdv{t} \qty(\va{D}-\va{P}) =\frac{4\pi}{c} \va{j}_f+\frac{4\pi}{c} \va{j}_b +\frac{1}{c} \pdv{\va{D}}{t} -\frac{4\pi}{c}\pdv{\va{P}}{t} 
 \end{align*}
 But
-$$4\pi\va{j}_b = c \curl{\va{M}} - \pdv{\va{P}}{t} $$
+$$\va{j}_b = c \curl{\va{M}} + \pdv{\va{P}}{t} $$
 
 \begin{align*}
-\curl{\va{B}} =4\pi \curl{\va{B}} +\frac{4\pi}{c} \va{j}_f +\frac{1}{c} \pdv{\va{D}}{t} -\pdv{\va{P}}{t} 
+\curl{\va{B}} =4\pi\curl{\va{M}} + \frac{4\pi}{c}\pdv{\va{P}}{t} +\frac{4\pi}{c} \va{j}_f +\frac{1}{c} \pdv{\va{D}}{t} -\frac{4\pi}{c}\pdv{\va{P}}{t} 
 \end{align*}
+i.e.,
+$$\curl{\va{H}} = \frac{4\pi}{c}\va{j}_f + \frac{1}{c} \pdv{\va{D}}{t}$$

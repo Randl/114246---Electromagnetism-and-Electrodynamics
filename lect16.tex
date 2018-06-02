@@ -1,0 +1,64 @@
+\paragraph{Maxwell stress tensor}
+We want to calculate force on volume element by electromagnetic fields.
+\begin{align*}
+\va{F}_E = \int \dd[3]{r} \rho \va{E}  = \int \dd[3]{r} \qty(\rho_{free}+\rho_{bound}) \va{E} = \frac{1}{4\pi} \int \dd[3]{r} (\div{\va{E}}) \va{E} = \frac{1}{4\pi} \int \dd[3]{r} \div(\va{E}\va{E}) - (\va{E} \vdot \grad)\va{E} =\\= \frac{1}{4\pi} \int \dd[3]{r} \qty[\div(\va{E}\va{E}) - \frac{1}{2}\grad\va{E}^2 + \va{E} \cross \qty(\curl{\va{E}}) ] = \frac{1}{4\pi} \int \dd[3]{r} \qty[\div(\va{E}\va{E}) - \frac{1}{2}\grad\va{E}^2 - \frac{1}{c}\va{E} \cross \pdv{\va{B}}{t}]
+\end{align*}
+$$$$
+$$\va{F}_B = \int \dd[3]{r} \va{j} \cross \va{B}  = \int \dd[3]{r} \qty(\va{j}_{free}+\va{j}_{bound}) \cross \va{B} = \frac{1}{4\pi} \dd[3]{r} \qty(\curl{\va{B}} -\frac{1}{c}\pdv{\va{E}}{t} ) \cross{\va{B}} = \frac{1}{4\pi} \int \dd[3]{r} \qty[\div(\va{B} \va{B}) - \frac{1}{2}\grad{\va{B}^2} -\frac{1}{c}\pdv{\va{E}}{t} \cross \va{B} ]$$
+
+The total force is
+$$\va{F} = \frac{1}{4\pi} \int \dd[3]{r} \qty[\div(\va{E}\va{E}+\va{B} \va{B}) - \frac{1}{2}\grad(\va{E}^2+\va{B}^2 )- \frac{1}{c} \pdv{t} \qty(\va{E} \cross \va{B})]$$
+
+Thus
+$$\va{F}_\alpha= \int \dd[3]{r} \qty[\pdv{T_{\alpha \beta}}{x_\beta} - \frac{1}{4\pi c}\pdv{\va{E} \cross \va{B}}{t} ]$$
+$$\va{F}= \int \dd[3]{r} \qty[\div{T} - \frac{1}{4\pi c}\pdv{\va{E} \cross \va{B}}{t} ]$$
+where
+$$T_{\alpha\beta} = \qty[E_\alpha E_\beta + B_\alpha B_\beta - \frac{1}{2}\delta_{\alpha \beta} (E^2+B^2) ]$$
+$$T_{EB} = \qty[\va{D}\va{E} + \va{B}\va{H} - \frac{1}{2}\delta (E^2+B^2) ]$$
+$$T_{DEBH} = \qty[\va{D}\va{E} + \va{B}\va{H} - \frac{1}{2}\delta (E^2+B^2) ]$$
+
+Note that $T_{EB}$ gives force on all the matter, while $T_{DEBH}$ gives the force on free charges and currents (only for linear and homogeneous materials though).
+
+By Gauss
+$$F_\alpha = \oint T_{\alpha \beta} \dd{s_\beta} - \frac{1}{c^2} \dv{t} \int \va{S} \dd[3]{r}$$
+
+Note that
+$$\va{F} = \dv{P_{matter}}{t}$$
+$$\dv{t} \qty(P_{matter}+\frac{1}{c^2} \int \va{S} \dd[3]{r}) = \oint T \vdot \dd{\va{s}}$$
+
+Thus we can interpret 
+$$P_{em} = \frac{1}{c^2} \int \va{S} \dd[3]{r}$$
+as momentum of electromagnetic field.
+\paragraph{Example}
+Calculate force needed to keep charges on spherical surfaces:
+$$F_{\alpha} = \oint T_{\alpha \beta} \dd{s_\beta} = \frac{E^2}{8\pi} \dd{s}$$
+$$F = \frac{16 \pi^2 \sigma^2}{8\pi} = 2\pi^2 \sigma^2 $$
+
+\paragraph{What happens in matter?}
+If we want to know the force on free particles only, we need to replace $\va{E}\vdot \va{E}$ with $\va{E}\vdot \va{D}$ and $\va{B}\vdot \va{B}$ with $\va{B}\vdot \va{H}$ and thus
+$$\va{P}_{em} = \frac{1}{4\pi c} \int \va{D} \cross \va{B}$$
+Note that
+$$\va{S} = \frac{c}{4\pi} \va{E} \cross \va{H}$$
+
+\paragraph{Third law of Newton}
+Suppose there is charge $q_1$ moving with velocity $-v_1\vu{x}$ and $q_2$ moving with velocity $-v_2\vu{y}$. If charges are close enough, the magnetic field by particles are in $\pm \vu{z}$ direction, and thus force on $q_2$ is in $\vu{x}$ direction and on $q_1$ in $\vu{y}$ direction. Thus the third law is broken, i.e., field's momentum has to change.
+
+
+\paragraph{Angular momentum}
+$$\va{L}  = \frac{1}{4\pi c} \int \va{r} \cross \qty(\va{E} \cross \va{B})\dd[3]{r}$$
+\section{Electromagnetic waves}
+If there is no free charges and currents:
+$$\begin{cases}
+\curl{\va{E}} = - \frac{1}{c} \pdv{\va{B}}{t}\\
+\div{\va{B}}=0\\
+\curl{\va{H}} =  \frac{1}{c} \pdv{\va{D}}{t} \\
+\div{\va{D}} =0
+\end{cases}$$
+
+Suppose $\va{D} = \epsilon \va{E}$ and $\va{B} = \mu \va{H}$ for constant $\epsilon$ and we get
+$$\begin{cases}
+\curl{\va{B}} =  \frac{\epsilon \mu}{c} \pdv{\va{E}}{t} \\
+\div{\va{E}} =0
+\end{cases}$$
+
+$$\curl(\curl{\va{E}}) = \grad(\div{E}) - \laplacian{\va{E}} = -\frac{1}{c} \pdv{\curl{\va{B}}}{t} = \frac{\epsilon \mu}{c} \pdv[2]{\va{E}}{t}  $$

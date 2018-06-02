@@ -1,0 +1,45 @@
+We get wave equation:$$\laplacian{\va{E}} = \qty(\frac{\epsilon \mu}{c^2}) \pdv[2]{\va{E}}{t}$$
+And similarly,
+$$\laplacian{\va{B}} = \qty(\frac{\epsilon \mu}{c^2}) \pdv[2]{\va{B}}{t}$$
+\paragraph{Solution}
+Guess solution
+$$\va{E}(\va{r}, t) = \va{E}_0 e^{\va{k} \vdot \va{r} - \omega t}$$
+We can choose axis such that $\va{k} - k \vu{x}$:
+$$\laplacian{\va{E}} = \pdv[2]{x} \va{E}_0 e^{i(kx-\omega t)} = -k^2\va{E}_0 e^{i(kx-\omega t)}$$
+$$\pdv[2]{\va{E}}{t} = -\omega^2 \va{E}_0 e^{i(kx-\omega t)}$$
+Thus
+$$-\qty(\frac{\epsilon \mu}{c^2})\omega^2 \va{E}_0 e^{i(kx-\omega t)} = -k^2\va{E}_0 e^{i(kx-\omega t)}$$
+$k$ is wavenumber, and
+$$k^2 = \omega^2 \qty(\frac{\epsilon \mu}{c^2})$$
+The velocity of wave propagation is
+$$c_\epsilon = \frac{c}{\sqrt{\epsilon \mu}}$$
+Since
+$$\grad{\va{E}} = 0 = \pdv{x}E_{0x}e^{-i(kx - \omega t)}$$
+Thus
+$$E_{0x} = 0$$
+i.e., EM wave is perpendicular to wave propagation direction.
+In vacuum
+$$\Box \va{E} = 0$$
+
+If we substitute into Maxwell equation:
+$$ i\va{k} \cross \va{E}  = \curl{\va{E}} = \frac{i\omega }{c}  \va{B}$$
+$$\va{B} = \sqrt{\epsilon \mu} \vu{k} \cross \va{E}$$
+In vacuum $\abs{B} = \abs{E}$ 
+\subsection{Energy of field}
+$$U = \frac{1}{8\pi} \qty(\va{E} \vdot \va{D} + \va{B} \vdot \va{H}) = \frac{1}{8\pi} \qty(\epsilon\va{E}^2 + \frac{\va{B}^2}{\mu}) $$
+Since $\va{B}] = \sqrt{\epsilon \mu} E$
+$$U = \frac{\epsilon}{4\pi} \va{E} \vdot \va{E} $$
+Since $\va{E}$ is complex
+$$U = \frac{\epsilon}{4\pi} \qty(\frac{\va{E}+\va{E}^*}{2})^2$$
+Alternatively
+$$\expval{U} = \frac{\int_0^T U \dd{t}}{\tau} = \frac{\epsilon }{8\pi} E_0^2$$
+
+And similarly,
+$$\expval{\va{S}} = \frac{c}{4\pi} \expval{\va{E} \cross \va{H}} = \frac{c\vu{k}}{8\pi} \sqrt{\frac{\epsilon}{\mu}} E_0^2$$
+\paragraph{Pressure of radiation}
+The momentum of electromagnetic wave
+$$\va{G} = \frac{1}{4\pi c} \va{D} \cross \va{B}$$
+and
+$$\expval{\va{G}} = \frac{\epsilon\vu{k}}{8\pi c} \sqrt{\epsilon \mu} E_0^2$$
+note that in vacuum
+$$\va{G} = \frac{\va{S}}{c^2}$$
