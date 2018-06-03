@@ -1,0 +1,89 @@
+\paragraph{Refraction of EM waves}
+
+\begin{center}	
+	\includesvg[eps,svgpath = lect18/,width=0.5\linewidth]{pic01} %rotate
+\end{center}
+
+$$\va{E}  = \va{E}_0 e^{i\qty(\va{k} \vdot \va{r} - \omega t)}$$
+where
+$$k = \sqrt{\frac{\epsilon \mu}{c^2}} \omega$$
+Since $\div{\va{D}} = 0$:
+$$\epsilon_2 \vu{n}  \va{E}_2 e^{i\qty(\va{k}_2 \vdot \va{r} - \omega t)} = \epsilon_1 \vu{n} \qty(\va{E}_1 e^{i\qty(\va{k}_1 \vdot \va{r} - \omega t)}+\va{E}'_1 e^{i\qty(\va{k}'_1 \vdot \va{r} - \omega t)})$$
+From $\curl{\va{E}} = -\frac{1}{c}\pdv{\va{B}}{t}$:
+$$\vu{n} \cross \va{E}_2 = \vu{n} \cross \qty( \va{E}_1 e^{i\va{k}_1 \vdot \va{r}}+ \va{E}'_1 e^{i\va{k}'_1 \vdot \va{r}})$$
+Similarly from other two Maxwell laws:
+$$\epsilon_2 \vu{n}  \va{B}_2 e^{i\qty\va{k}_2 \vdot \va{r}} = \epsilon_1 \vu{n} \qty(\va{B}_1 e^{i\va{k}_1 \vdot \va{r} }+\va{B}'_1 e^{i\va{k}'_1 \vdot \va{r}})$$
+$$\vu{n} \cross \va{B}_2 = \vu{n} \cross \qty( \va{B}_1 e^{i\va{k}_1 \vdot \va{r}}+ \va{B}'_1 e^{i\va{k}'_1 \vdot \va{r}})$$
+
+Since the equations are fulfilled for any $\va{r}$ we get
+$$\va{k}_1 \vdot \va{r} =\va{k}'_1 \vdot \va{r}=\va{k}_2 \vdot \va{r} $$
+
+$$k_1' \sin(\theta'_1) = k_1 \sin (\theta_1) = k_2 \sin(\theta_2)$$
+Since $\abs{k_1} = \abs{k'_1}$ we get
+$$\theta_1 = \theta'_1$$
+
+And we get Snell's law:
+$$k_1 \sin(\theta_1) = k_2 \sin(\theta_2)$$
+$$n_1 \sin(\theta_1) = n_2 \sin(\theta_2)$$
+, where $n=\sqrt{\epsilon \mu}$.
+\paragraph{Fermat's principle}
+Fermat's principle or the principle of least time, is the principle that the path taken between two points by a ray of light is the path that can be traversed in the least time. 
+
+Thus we can make optimization of 
+$$d(y)= \frac{\abs{Ay}}{\frac{c}{n_1}}+\frac{\abs{yB}}{\frac{c}{n_2}}$$
+and acquire Snell's law too.
+
+\paragraph{Specific polarization}
+Suppose $\va{E}_1$ parallel to plane of division, we get
+$$\va{E}_1+\va{E}'_1 = \va{E}_2$$
+$$\sqrt{\epsilon_1 \mu_1} (\va{E}_1 + \va{E}'_1) \sin(\theta_1) = \sqrt{\epsilon_1 \mu_1} \va{E}_2 \sin(\theta_2)$$
+Assume $\mu=1$, we get
+$$\begin{cases}
+\va{E}_2 = \frac{2n_1 \cos(\theta_1)}{n_1 \cos(\theta_1) + n_2 \cos(\theta_2)}\va{E}_1\\
+\va{E}'_1 = \frac{n_1 \cos(\theta_1) - n_2 \cos(\theta_2)}{n_1 \cos(\theta_1) + n_2 \cos(\theta_2)}\va{E}_1
+\end{cases}$$
+\section{Fields of moving charges}
+\paragraph{Radiation of electromagnetic waves}
+$$\begin{cases}
+\curl{\va{E}} = - \frac{1}{c} \pdv{\va{B}}{t}\\
+\va{B}=\curl{\va{A}}\\
+\curl{\va{B}} =  \frac{1}{c} \pdv{\va{E}}{t} + \frac{4\pi}{c} \va{j}\\
+\div{\va{E}} = 4\pi \rho
+\end{cases}$$
+Substitute first pair into third equation:
+$$\curl{\curl{\va{A}}} = \frac{1}{c} \qty[-\grad{\pdv{\Phi}{t}} - \frac{1}{c} \pdv[2]{\va{A}}{t}] + \frac{4\pi}{c} \va{j}$$
+$$-\laplacian{\va{A}} + \grad(\div{\va{A}}) + \div(\frac{1}{c} \pdv{\Phi}{t}) = -\frac{1}{c^2} \pdv[2]{\va{A}}{t} + \frac{4\pi}{c}$$
+
+We choose Lorenz gauge:
+$$\frac{1}{c} \pdv{\Phi}{t} + \div{\va{A}} = 0$$
+Or
+$$\pdv{A_i}{x^i} = 0$$
+
+i.e.
+$$\laplacian{\va{A}} -\frac{1}{c^2} \pdv[2]{\va{A}}{t} = -\frac{4\pi}{c}\va{j}$$
+$$\laplacian{\Phi} -\frac{1}{c^2} \pdv[2]{\va{\Phi}}{t} = -4\pi \rho$$
+
+Let's use Fourier transform:
+$$ \rho(\va{r}, t)  = \frac{1}{2\pi} \int_{-\infty}^\infty \rho_\omega(\va{r}) e^{i\omega t} \dd{\omega}$$
+
+For any specific $\omega$:
+$$\pdv[2]{\Phi}{t} = \pdv[2]{\Phi_{\omega}(\va{r}) e^{i\omega t}}{t} = -\omega^2 \Phi_{\omega}e^{i\omega t}$$
+$$e^{i\omega t} \laplacian{\Phi_{\omega}(\va{r})} + \frac{\omega^2}{c^2} \Phi_{\omega}(\va{r}) e^{i\omega t} = -4\pi \rho_\omega $$
+Define 
+$$r_s^{-2} = \qty(\frac{i\omega}{c})^2$$
+$$\laplacian{\Phi_{\omega}(\va{r})}  - \frac{1}{r_s^2}\Phi_{\omega}(\va{r}) = -4\pi \rho_\omega$$
+The solution is Yukawa potential:
+$$\Phi_{\omega}(\va{r}) = \int_{-\infty}^\infty \rho_\omega \frac{e^{\frac{\abs{\va{r}' - \va{r}}}{r_s}}}{\abs{\va{r}' - \va{r}}} \dd[3]{r'}$$
+
+$$\Phi_{\omega}(\va{r}) = \int_{-\infty}^\infty \rho_\omega \frac{e^{\pm i\omega\frac{ \abs{\va{r}' - \va{r}}}{c}}}{\abs{\va{r}' - \va{r}}} \dd[3]{r'}$$
+thus
+$$\Phi(\va{r},t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \dd{\omega} e^{i\omega t} \int_{-\infty}^{\infty} \dd[3]{r'} \rho_\omega \frac{e^{\pm i\omega\frac{ \abs{\va{r}' - \va{r}}}{c}}}{\abs{\va{r}' - \va{r}}} = \frac{1}{2\pi} \iint \dd{\omega} \dd[3]{r'} \frac{1}{\abs{\va{r}' - \va{r}}} \rho_\omega  e^{ i\omega \qty(t\pm\frac{ \abs{\va{r}' - \va{r}}}{c})}$$
+i.e.,
+$$\frac{1}{2\pi} \int \rho_{\omega} (\va{r}') e^{i\omega t'} \dd{\omega} = \rho\qty(\va{r}, t' = t\pm \frac{ \abs{\va{r}' - \va{r}}}{c})$$
+From physical perspective, $t'<t$, thus
+$$\Phi(\va{r},t) = \int \frac{\rho\qty(\va{r}, t - \frac{ \abs{\va{r}' - \va{r}}}{c})}{ \abs{\va{r}' - \va{r}}} \dd[3]{r'}$$ 
+Same applies to $\va{A}$:
+$$\va{A} = \int \frac{\va{j}\qty(\va{r}, t - \frac{ \abs{\va{r}' - \va{r}}}{c})}{ \abs{\va{r}' - \va{r}}} \dd[3]{r'}$$
+This is called retarded potentials.
+\paragraph{Li\'{e}nard–Wiechert potential }
+Point charge moves by $\va{r} = \va{r}_0(t)$. What are $\Phi$ and $\va{A}$?
