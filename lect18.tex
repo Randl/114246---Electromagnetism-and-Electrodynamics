@@ -42,6 +42,25 @@ $$\begin{cases}
 \va{E}_2 = \frac{2n_1 \cos(\theta_1)}{n_1 \cos(\theta_1) + n_2 \cos(\theta_2)}\va{E}_1\\
 \va{E}'_1 = \frac{n_1 \cos(\theta_1) - n_2 \cos(\theta_2)}{n_1 \cos(\theta_1) + n_2 \cos(\theta_2)}\va{E}_1
 \end{cases}$$
+\paragraph{Electromagnetic waves in (non-ideal) conductor}
+Define $\sigma$, conductance as
+$$\va{j} = \va{E} \sigma$$
+In this case
+$$\curl{\va{B}} = \frac{4\pi}{c} \mu \sigma \va{E} + \frac{\mu \epsilon}{c}\pdv{\va{E}}{t}$$
+If $\va{E},\va{B} \propto e^{i(\va{k}\vdot \va{r} - \omega t)}$ we get
+$$i\va{k} \cross \va{B} = \frac{4\pi}{c} \mu \sigma \va{E} + \frac{i\omega \mu \epsilon}{c}\va{E}$$
+and
+$$i\va{k} \cross \va{E} = \frac{i\omega}{c} \va{B}$$
+Multiplying by $\va{k}$
+$$\frac{i}{\omega} (\va{k} \cross \qty(\va{k} \cross \va{E})) = -\frac{c\va{k}^2}{\omega} \va{E} = -\frac{\mu \epsilon \omega}{c} \qty(1+\frac{i4\pi \sigma}{\epsilon \omega})\va{E}$$
+Thus we get dispersion relation
+$$k = k_0\sqrt{1+\frac{i4\pi \sigma}{\epsilon \omega}}$$
+where $k_0 = \frac{\sqrt{\epsilon \mu}}{c}\omega$.
+
+Suppose $\va{k} = (\beta+i\abs{\alpha})\vu{x}$. We get
+$$e^{i \va{k}\vdot \va{r}} = e^{i\beta x - \alpha x}$$
+i.e.,
+$$E,B \propto e^{-\alpha x}$$
 \section{Fields of moving charges}
 \paragraph{Radiation of electromagnetic waves}
 $$\begin{cases}

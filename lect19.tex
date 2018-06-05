@@ -1,0 +1,41 @@
+$$\rho(\va{r}', t') = q\delta\qty(\va{r}'-\va{r}_0(t))$$
+And thus
+
+$$\Phi(\va{r},t) = \int \frac{q\delta\qty(\va{r}'-\va{r}_0\qty( t - \frac{ \abs{\va{r}' - \va{r}}}{c}))}{ \abs{\va{r}' - \va{r}_0(t)}} \dd[3]{r'}$$ 
+This is hard since we have $r'$ inside $r_0$ parameter.
+But we can rewrite as
+
+$$\Phi(\va{r},t) = \int \dd[3]{r'} \dd{\tau}\frac{\rho\qty(\va{r}, \tau)}{ \abs{\va{r}' - \va{r}}}  \delta\qty(\tau - t + \frac{ \abs{\va{r}' - \va{r}}}{c})$$ 
+and thus
+$$\Phi(\va{r},t) = \int \dd[3]{r'} \dd{\tau}\frac{q\delta\qty(\va{r}'-\va{r}_0(\tau))}{ \abs{\va{r}' - \va{r}}}  \delta\qty(\tau - t + \frac{ \abs{\va{r}' - \va{r}}}{c}) = q\int  \dd{\tau}\frac{1}{ \abs{\va{r} - \va{r}_0(\tau)}}  \delta\qty(\tau - t + \frac{ \abs{\va{r} - \va{r}_0(\tau)}}{c})$$ 
+Lets perform variable substitution  $\eta = \tau - t + \frac{ \abs{\va{r} - \va{r}_0(\tau)}}{c}$, denote $\va{R}(\tau) = \va{r} - \va{r}_0(\tau)$, then
+$$\dv{\eta}{\tau} = 1 + \grad \abs{R} \dv{\va{R}}{\tau} = -\frac{\va{R}}{R} \frac{1}{c} \dv{r_0}{\tau} = 1- \frac{\va{R}}{R} \frac{\va{v}(\tau)}{c}$$
+\begin{align*}
+\Phi(\va{r},t) = q\int  \dd{\tau}\frac{1}{ \abs{\va{r} - \va{r}_0(\tau)}}  \delta\qty(\tau - t + \frac{ \abs{\va{r} - \va{r}_0(\tau)}}{c}) = q \int \dd{\eta} \frac{\dv{\tau}{\eta}}{\abs{\va{r} - \va{r}_0(\tau)}} \delta(\eta) =  q \int \dd{\eta} \frac{1}{\abs{\va{r} - \va{r}_0(\tau)}} \frac{1}{1- \frac{\va{R}}{R}\vdot \frac{\va{v}(\tau)}{c}}\delta(\eta) =\\= q \frac{1}{\abs{\va{r} - \va{r}_0(\tau_0)}} \frac{1}{1- \frac{\va{R}}{R} \frac{\va{v}(\tau_0)}{c}} = q  \frac{1}{R-  \frac{\va{R}\vdot \va{v}(\tau_0)}{c}} 
+\end{align*}
+where $\tau_0 =  t - \frac{ \abs{\va{r} - \va{r}_0(\tau_0)}}{c}$.
+
+We got
+$$\Phi(\va{r},t) =   \frac{q}{R-  \frac{\va{R}\vdot \va{v}(\tau_0)}{c}} $$
+$$\va{A}(\va{r},t) =  \frac{q v(\tau_0)}{c\qty(R-  \frac{\va{R}\vdot \va{v}(\tau_0)}{c})} $$
+
+Let's calculate $\va{E}$ (note that it requires chain rule since we have $\va{v}(\tau_0)$:
+$$t = \tau_0 + \frac{ \abs{\va{r} - \va{r}_0(\tau_0)}}{c}$$
+$$\dv{t}{\tau_0} = 1 -\frac{1}{c} \frac{\va{v}\vdot \va{R}}{R}$$
+Similarly we need to do in gradient, since $\tau_0$ depends on $r$:
+$$\va{E} = -\frac{1}{c} \pdv{\va{A}}{t} - \grad_r {\Phi } = \frac{\qty(1-\frac{v^2}{c^2}) \qty(R - \frac{\va{v} R }{c})}{\qty(R - \frac{\va{v} \vdot \va{R} }{c})^3} + \frac{q}{c^2} \frac{1}{\qty(R - \frac{\va{v} \vdot \va{R} }{c})^3} \va{R} \cross \qty[\qty(R - \frac{\va{v} R }{c}) \cross \dot{\va{v}}]$$  % Franklin 15.4.2
+
+\paragraph{Example}
+Suppose we have a charge moving with constant velocity, i.e. $\dot{\va{v}} = 0$:
+$$\va{E} = \frac{\qty(1-\frac{v^2}{c^2}) \qty(R - \frac{\va{v} R }{c})}{\qty(R - \frac{\va{v} \vdot \va{R} }{c})^3}$$
+The distance between retarded particle position and $\va{r}$ is $c(t-\tau_0)$. And the vector is
+$$\va{R} - \frac{\va{v}}{c} R = \va{r}-\va{v}t$$
+$$\va{R} - \frac{\va{v}}{c} (R-c\tau_0)= \va{r}-\va{r}_0 - \va{v} t + \va{v} \tau_0 = \va{r} - \va{v}t$$
+$$R - \frac{\va{v}\vdot \va{R}}{c} = \qty(\va{R}- \frac{R\va{v}}{c})\vdot \vu{R} = \underbrace{\qty(\va{r} -\va{v} t)}_{\va{R}_t} \vdot \vu{R}$$
+Note that
+$$\abs{\va{R}_t \cross \vu{R} } = \frac{v}{c} \abs{\va{R}_t \cross \vu{v}}$$
+Since
+$$R - \frac{\va{v} \vdot \va{R}}{c} = \va{R}_t \vdot \vu{R}  =R_t \sqrt{1-\abs{\vu{R}_t \cross \vu{R}}} $$
+
+$$\va{E}(\va{r},t) = \frac{q\qty(1-\frac{v^2}{c^2})\va{R}_t}{\sqrt{1-\frac{v^2}{c^2}\sin[2](\theta)}R_t^3}$$
+where $\cos(\theta) = \frac{\va{v} \vdot \va{r}}{\abs{v}\abs{r}} $
