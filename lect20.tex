@@ -1,0 +1,54 @@
+\section{Radiation from $\rho(\va{r},t)$ and $\va{j}(\va{r},t)$}
+$$\Phi(\va{r},t) = \int \frac{\rho\qty(\va{r},t'=t-\frac{ \abs{\va{r}' - \va{r}}}{c})}{\abs{\va{r}-\va{r'}}} \dd{r'}$$
+$$\va{A}(\va{r},t) = \frac{1}{c} \int \frac{\va{j}\qty(\va{r},t'=t-\frac{ \abs{\va{r}' - \va{r}}}{c})}{\abs{\va{r}-\va{r'}}} \dd{r'}$$
+
+Lets take first element of Taylor approximation
+$$\Phi(\va{r},t) = \int \rho\qty(\va{r},t'=t-\frac{ \abs{\va{r}' - \va{r}}}{c}) \dd{r'}$$
+$$\va{A}(\va{r},t) = \frac{1}{c} \int\va{j}\qty(\va{r},t'=t-\frac{ \abs{\va{r}' - \va{r}}}{c}) \dd{r'}$$
+Why haven't we neglect $\va{r}'$ inside $\rho$ and $\va{j}$?
+Denote, for system size $a$
+$$T+\abs{\frac{\pdv{j}{t}}{j}} \sim \frac{a}{v} $$
+We can neglect iff $$T\gg \frac{a}{c}$$
+
+The wavelength of emitted em waves is
+$$\lambda_{emitted} \sim cT$$
+Thus we can rewrite the condition of neglecting $r'$ is
+$$\lambda_{emitted} \gg a$$
+
+
+Now if $r\gg \lambda$, we can approximate wave as plane wave:
+$$\va{E} = \va{B} \cross \vu{r}$$
+$$\va{B} = \curl{\va{A}} = \frac{1}{c} \dot{\va{A}} \cross \vu{r}$$
+$$ \frac{1}{c} \qty(\dot{\va{A}} \cross \vu{r}) \cross \vu{r}$$
+
+Now, suppose $v\ll c$:
+$$\va{A}(\va{r},t) = \frac{1}{c} \int\va{j}\qty(\va{r},t'=t-\frac{r }{c}) \dd{r'}$$
+
+Note since $\va{j} = \sum q_i \va{v}_i$, we can rewrite integral using dipole:
+$$\int \dd[3]{r'} \va{j} = \pdv{t} \va{D}$$
+Thus we get
+$$\va{B}= \frac{\ddot{\va{D}}\cross \vu{r}}{c^2r}$$
+$$\va{E}= \frac{\qty(\ddot{\va{D}}\cross \vu{r})\cross \vu{r}}{c^2r}$$
+Then the energy
+$$\frac{E^2+B^2}{8\pi} \propto \frac{1}{r^2}$$
+
+\paragraph{Example} % Griffin
+Suppose we have two opposite charges aligned on $\vu{z}$ axis with distance $a$ between them. Their potential:
+$$\Phi(\va{r},t) = \qty[\frac{q_+ \cos(\omega\qty(t-\frac{r_+}{t}))}{r_+}+\frac{q_- \cos(\omega\qty(t-\frac{r_-}{t}))}{r_-}]$$
+
+Where
+$$r_{\pm} = \sqrt{r^2 \mp ra\cos(\theta))+\frac{a^2}{4}}$$
+for $\theta$ angle between $\va{r}$ and $\vu{z}$.
+
+Approximating
+$$r_\pm \approx r(1\mp \frac{a}{2r}\cos(\theta))$$
+i.e.,
+$$\frac{1}{r_\pm} \approx \qty(1\pm \frac{a}{2r}\cos(\theta))$$
+and
+$$\cos(\omega\qty(t-\frac{r_\pm}{c})) \approx \cos(\omega\qty(t-\frac{r}{c}) \pm \frac{\omega a}{2c}\cos(\theta)) = \cos(\omega\qty(t-\frac{r}{c}))\cos(\frac{\omega a}{2c}\cos(\theta)) \mp \sin(\omega\qty(t-\frac{r}{c}))\sin(\frac{\omega a}{2c}\cos(\theta))$$
+
+Next approximation is that $a\ll \frac{c}{\omega}$ (i.e., $\lambda \gg a$):
+$$\cos(\omega\qty(t-\frac{r_\pm}{c})) \approx \cos(\omega\qty(t-\frac{r}{c})) \mp \frac{\omega a}{2c} \cos(\theta)) \sin(\omega\qty(t-\frac{r}{c}))$$
+
+We got
+$$\Phi(\va{r},t) = \frac{\cos(\theta)}{r}d\qty[-\frac{\omega}{c} \sin(\omega\qty(t-\frac{r}{c})) +\frac{1}{r}\cos(\omega\qty(t-\frac{r}{c}))]$$
