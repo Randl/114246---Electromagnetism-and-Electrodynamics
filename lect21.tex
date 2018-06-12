@@ -1,0 +1,73 @@
+Since the charge is oscillating, we can easily find current:
+$$I = \dv{q}{t} = \vu{z} = -q_0 \omega \sin(\omega t)$$
+$$\va{A} = \frac{1}{c} \int_{-\frac{a}{2}}^{\frac{a}{2}} \dd{z} \frac{-q_0 \omega \sin(\omega (t-\frac{\tilde{r}}{c}))}{\tilde{r}} $$
+, where $\tilde{r}$ is distance from current position of charge and $\va{r}$.
+We still need same three approximations:
+\begin{enumerate}
+	\item $r\gg a$
+	\item $\lambda \gg a$
+	\item $r \gg \lambda$
+\end{enumerate}
+
+We get
+$$\va{A} \approx -\frac{1}{c}\frac{d_0\omega}{cr} \sin(\omega\qty(t-\frac{r}{c}))$$
+and
+$$\Phi \approx -\frac{d_0\omega}{c}\frac{\cos(\theta)}{r} \sin(\omega\qty(t-\frac{r}{c}))$$
+
+Now lets calculate fields:
+$$\va{E} = \grad{\Phi} - \frac{1}{c} \pdv{\va{A}}{t}$$
+$$\va{E} = -\frac{d_0 \omega^2}{c} \frac{\sin(\theta)}{r} \cos(\omega\qty(t-\frac{r}{c})) \vu{\theta}$$
+$$\va{B}= \curl{\va{A}}$$
+$$\va{B} = -\frac{d_0 \omega^2}{c} \frac{\sin(\theta)}{r} \cos(\omega\qty(t-\frac{r}{c})) \vu{\phi}$$
+
+And vector Poynting:
+$$\va{S} = \frac{c}{4\pi} \va{E} \cross \va{B}= \frac{E^2}{4\pi} \vu{r}$$
+
+\paragraph{Radiation of magnetic moment}
+We have a loop of current of area $S$ in plane $xy$. Its magnetic moment is
+$$m = \frac{I(t)\va{S}}{c}$$
+where
+$$I(t) = I_0 \cos(\omega t)$$
+and
+$$\phi=0$$
+
+Then
+$$\va{A} = \frac{1}{c} \int_0^{2\pi} \frac{\cos(\omega\qty(t-\frac{\tilde{r}}{c}))}{\tilde{r}} \dd{\va{l}}$$
+
+After regular approximations
+$$\va{A} = m_0\frac{\sin(\theta)}{r} \qty[\frac{1}{r} \cos(\omega\qty(t-\frac{r}{c})) - \frac{\omega}{c}\sin(\omega\qty(t-\frac{r}{c}))]\vu{\phi}$$
+
+The part caused by electromagnetic waves:
+$$\va{A} =  -m_0\frac{\sin(\theta)}{r} \frac{\omega}{c}\sin(\omega\qty(t-\frac{r}{c}))\vu{\phi}$$
+and
+$$\va{E} = -\pdv{\va{A}}{r}$$
+Vector Poynting is:
+$$\va{S} =\frac{c}{4\pi} \va{E} \cross \va{B} = \frac{cE^2}{4\pi}\propto m_0^2$$
+If we want to find power of electromagnetic wave, we
+$$\frac{P_{magnetic}}{P_{electric}} = \qty(\frac{m_0}{d_0})^2$$
+where
+$$m_0 \sim \frac{\pi b^2}{c} I_0$$
+$$d_0 \sim q_0a$$
+In oscillating dipole, $I_0 \sim q_0 \omega$:
+$$\frac{P_{magnetic}}{P_{electric}} = \qty(\frac{m_0}{d_0})^2 \sim \qty(\frac{\frac{b^2q_0 \omega}{c}}{bq_0})^2 = \qty(\frac{b\omega}{c})^2 \approx 0$$
+\paragraph{Note}
+remember, that
+$$\va{A} = \frac{\dot{\va{d}}}{cr}$$
+$$\va{B}= \frac{\ddot{\va{d}}\cross \vu{r}}{c^2r}$$
+and
+$$\va{E} = \qty(\frac{\ddot{\va{d}}\cross \vu{r}}{c^2r} ) \cross \vu{r}$$
+$$\va{d} = \sum q_i \va{r}_i  = \frac{q_i}{m_i} m_i \va{r}_i$$
+If $\frac{q_i}{m_i}$ is constant for all particles,
+$$\va{d} = \frac{q}{m} \sum m_i \va{r}_i$$
+$$\dot{\va{d}}  =\frac{q}{m}\sum m_i \va{v}_i$$
+$$\ddot{\va{d}} = 0$$
+i.e., there is no electromagnetic radiation from closed system of similar particles.
+
+\paragraph{Poynting vector of dipole radiation}
+$$\va{S} = \frac{c}{4\pi} \va{E} \cross \va{B}  = \frac{c^2}{4\pi} B^2 \vu{r}$$
+Then the light intencity is
+$$\dd{I} = \frac{1}{4\pi c} B^2 r^2 \dd{\Omega}$$
+and
+$$I  = \int \dd{I} = \int \frac{cE^2}{4\pi}r^2 \dd{\Omega}$$
+$$\dd{I} = \frac{1}{4\pi c^3}\abs{\va{d}\cross \vu{r}}^2 \dd{\Omega} = \frac{\abs{\va{d}}}{4\pi c^3} \sin[2](\theta) \dd{\Omega}$$
+, where $\theta$ is angle between $\ddot{d}$ and $\vu{r}$.

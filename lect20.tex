@@ -33,15 +33,17 @@ Then the energy
 $$\frac{E^2+B^2}{8\pi} \propto \frac{1}{r^2}$$
 
 \paragraph{Example} % Griffin
-Suppose we have two opposite charges aligned on $\vu{z}$ axis with distance $a$ between them. Their potential:
+Suppose we have two opposite charges aligned on $\vu{z}$ axis with distance $a$ between them. The charges do oscillations:
+$$\va{d} = d_0 \cos(\omega t) \vu{z}$$
+ Their potential:
 $$\Phi(\va{r},t) = \qty[\frac{q_+ \cos(\omega\qty(t-\frac{r_+}{t}))}{r_+}+\frac{q_- \cos(\omega\qty(t-\frac{r_-}{t}))}{r_-}]$$
 
 Where
 $$r_{\pm} = \sqrt{r^2 \mp ra\cos(\theta))+\frac{a^2}{4}}$$
-for $\theta$ angle between $\va{r}$ and $\vu{z}$.
+for $\theta$ angle between $\va{r}$ and $\vu{z}$ (i.e. regular spherical $\theta$).
 
 Approximating
-$$r_\pm \approx r(1\mp \frac{a}{2r}\cos(\theta))$$
+$$r_\pm \approx r\qty(1\mp \frac{a}{2r}\cos(\theta))$$
 i.e.,
 $$\frac{1}{r_\pm} \approx \qty(1\pm \frac{a}{2r}\cos(\theta))$$
 and
@@ -52,3 +54,5 @@ $$\cos(\omega\qty(t-\frac{r_\pm}{c})) \approx \cos(\omega\qty(t-\frac{r}{c})) \m
 
 We got
 $$\Phi(\va{r},t) = \frac{\cos(\theta)}{r}d\qty[-\frac{\omega}{c} \sin(\omega\qty(t-\frac{r}{c})) +\frac{1}{r}\cos(\omega\qty(t-\frac{r}{c}))]$$
+
+If $\lambda \ll r$, we could approximate wave with plane wave and then it's more convenient to calculate $\va{B}$ and not $\va{E}$. 
