@@ -1,0 +1,59 @@
+%TODO 
+$$\int \va{r} $$
+$$\int \va{r} \cross \frac{q}{c} \va{A}  \dd[3]{r}$$
+$$P_{tot} = m\va{v} - \frac{q}{c} \va{A} $$
+
+$$\dd{I}  =\frac{1}{4\pi c^3} \abs{\ddot{\va{d}} \cross \vu{r}}^2 \dd{\Omega}$$
+Since
+$$\expval{S} = \frac{c}{4\pi} \expval{B^2} \vu{r}$$
+$$I = \int \dd{I} = \int_0^{2\pi} \dd{\phi} \int_0^\pi \dd{\theta} \frac{\ddot{\va{d}}^2}{4\pi c^3} \sin[3](\theta) \dd{\theta}\dd{\phi} = \frac{2}{3c^3}\abs{\ddot{\va{d}}}^2$$
+\paragraph{Charge moving with constant acceleration}
+$$\va{d} = q\va{r} \Rightarrow \ddot{\va{d}} = qa$$
+i.e.,
+$$I = \frac{2q^2a^2}{3c^3}$$
+
+\paragraph{Dipove in circular motion}
+$$\begin{cases}
+d_x = d_0 \sin(\omega t)\\
+d_y = d_0 \cos(\omega t)\\
+\end{cases}$$
+Then
+$$\ddot{\va{d}}^2 = \omega_0^4 d_0^2$$
+$$\expval{\dv{I}{\Omega}} = \frac{d_0^2\omega_0^4}{8\pi c^3} (1+\cos[2](\theta))$$
+$$\va{I} = \frac{2q^2R^2\omega^4}{3c^3}$$
+where $\theta$ is second spherical coordinate.
+\paragraph{Example} How many time takes electron to fade in hydrogen atom as a result of energy loss.
+\subparagraph{Solution}
+$$P = \frac{2e^2R^2\omega t}{3c^3}$$
+Suppose $e$ moves in circular trajectory:
+$$\omega^2 = \frac{e^2}{mR^3}$$
+since
+$$\frac{mv^2}{R} = \frac{e^2}{R^2}$$
+Initial energy is
+$$E = \frac{1}{2}mv^2 - \frac{e^2}{R} = -\frac{1}{2} \frac{e^2}{R}$$
+Since
+$$P = -\dv{E}{t}$$
+$$\frac{2e^6}{m^2R^4c^3} = \frac{e^2}{2R^2} \dv{R}{t}$$
+We got $$\frac{E}{P} \sim \tau \sim 10^{10} s$$, i.e. hydrogen atom classically is impossible.
+
+\subsection{Scattering}
+Suppose we have wave coming to charged particle:
+$$\va{E} = \va{E}_0 \cos(\omega t - \va{k} \vdot \va{r})$$
+Writing Newton second law:
+$$m\ddot{\va{r}} = q\va{E}_0 \cos(\omega t - \va{k} \vdot \va{r}) + q\frac{\va{v}}{c} \cross \va{B}_0\cos(\omega t - \va{k} \vdot \va{r}) $$
+We neglect second-order fields, assuming $\frac{v}{c} \ll 1$. Also suppose$r(t=0) = 0$ and $\va{k} \vdot \va{r}(t) \ll 1$.
+$$r(t) \ll \frac{1}{k} \sim \lambda$$
+Since
+$$\ddot{\va{d}} = q\ddot{\va{r}} = \frac{q^2}{m} \va{E}(t)$$
+$$\dd{I} = \frac{q^4}{4\pi m^2 c^3} \qty(\va{E} \cross \vu{r})^2 \dd{\Omega}$$
+i.e.,
+$$\va{d} \propto \va{E}$$
+and
+$$\abs{\va{d}} \propto \abs{\omega^2 \va{E}}$$
+Now
+$$\dd{\sigma} = \frac{\dd{I}}{S}$$
+,where
+$$S = \frac{c}{4\pi}E^2$$
+Differentiable cross section is
+$$\dd{\sigma} = \qty(\frac{q^2}{mc^2} )^2\sin[2](\theta) \dd{\Omega}$$
+$$\sigma = \frac{8\pi}{3}\qty(\frac{q^2}{mc^2} )^2\sin[2](\theta) $$
