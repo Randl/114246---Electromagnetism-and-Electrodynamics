@@ -15,14 +15,22 @@ $$\oint \dd{\va{r}} \cross \va{u}= \int (\grad \va{u}) \vdot \dd{\va{s}} - \int 
 we get
 $$\va{F} = \frac{I}{c} \int \grad((\va{r} \vdot \grad)\va{B})\vdot \dd{s} = \frac{I}{c} \int \dd{s} \div[(\va{r} \vdot \grad)\va{B}] = \frac{I}{c} \int \dd{s} \div{\va{B}} = 0$$
 In case of magnetic dipole:
-$$\va{F} = \frac{I}{c} \int \grad((\va{r} \vdot \grad)\va{B})\vdot \dd{s} = \va{M} \vdot \grad{\va{B}} = \grad(\va{M} \cdot \va{B})$$
+\begin{align*}
+\va{F} = \frac{I}{c} \int  \grad(\va{r} \vdot\qty(  \grad\va{B})_{r=0})\vdot \dd{s} = \frac{I}{c} \int  \grad(x_\alpha \vdot\qty(  \partial_\alpha \va{B})_{r=0})\vdot \dd{s}
+= \frac{I}{c} \int  \vu{x}_\beta \partial_\beta\qty(x_\alpha \vdot\qty(  \partial_\alpha B_\gamma \vu{x}_\gamma )_{r=0})\vdot \dd{s_\delta \vu{x}_\delta} 
+=\\= \frac{I}{c} \int  \vu{x}_\beta \delta_{\alpha\beta} \qty( \partial_\alpha B_\gamma \vu{x}_\gamma )_{r=0}\vdot \dd{s_\delta \vu{x}_\delta} 
+= \frac{I}{c} \int  \vu{x}_\alpha \qty( \partial_\alpha B_\gamma  )_{r=0}\vu{x}_\gamma\vdot \dd{s_\delta \vu{x}_\delta} 
+= \frac{I}{c} \int  \vu{x}_\alpha \qty( \partial_\alpha B_\gamma  )_{r=0} \dd{s_\gamma} 
+=\\=  \vu{x}_\alpha \qty( \partial_\alpha B_\gamma  )_{r=0} \frac{I}{c} \int  \dd{s_\gamma} = \grad{B} \vdot \va{M}
+= \grad(\va{M} \cdot \va{B})
+\end{align*}
 Then the energy of magnetic dipole moment in external magnetic field is
 $$U = \va{M} \vdot \va{B}$$
 \paragraph{Landau's method}
 Looking at average in time:
 $$F = \expval{\sum \frac{q}{c}\va{v}_\alpha \cross \va{B}} = \expval{\dv{t} \sum \frac{q}{c}\va{r}_\alpha \cross \va{B}} \to 0$$
 Since if $X$ doesn't diverges
-$$\dv{t} \bar{X} = \frac{1}{T} \int_0^T \dv{X}{t} \dd{t} = \frac{X(t)-X(0)}{T} $$
+$$\dv{t} \bar{X} = \frac{1}{T} \int_0^T \dv{X}{t} \dd{t} = \frac{X(T)-X(0)}{T} $$
 
 Now, the torque is
 $$\va{N} = \expval{\sum \frac{q}{c} \va{r}_i \cross \qty(\va{v} \cross \va{B})} = \expval{\sum \frac{q}{c} \va{v} \qty(\va{r}\vdot \va{B}) - \va{B} \qty(\va{v} \vdot \va{r})}$$
